@@ -11,9 +11,8 @@ Exemplo: Tamanho, cor, formato e posição das divs.
 
 /*Div do body*/
 body{
-    background-color: var(--c2);
+    background: linear-gradient(90deg, rgba(32,37,41,1) 0%, rgba(42,48,52,1) 15%, rgba(42,48,52,1) 85%, rgba(32,37,41,1) 100%);
 }
-
 
 
 /*+=================================================+ DIVS PRINCIPAIS +=================================================+*/
