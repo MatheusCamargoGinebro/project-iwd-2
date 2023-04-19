@@ -23,7 +23,7 @@ body{
 
     position:fixed;
     width: 100%;
-    height: 5rem;
+    height: 8rem;
     padding: 3rem;
     background-color: var(--c1);
     z-index: 10;
@@ -31,9 +31,18 @@ body{
 .menu-div nav{
     margin-left: auto;
 }
-.logo-div img{
-    height: 5rem;
+.logo-div{
+    display: flex;
+    font-size: 1.9rem;
+    color: var(--c4);
 }
+.logo-div div{
+    display: flex;
+    align-items: center;
+    font-size: 3rem;
+    margin-left: 5px;
+}
+
 
 /*+--------------------</> Div central </>--------------------+*/
 .content-div{

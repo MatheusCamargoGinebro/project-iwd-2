@@ -28,6 +28,9 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
 }
 
 /*Detalhamento de botões do cabeçalho*/
+.logo-div img:hover{
+    border-color: var(--c3);
+}
 #SingUp:hover{
     border-color: var(--c3);
 }

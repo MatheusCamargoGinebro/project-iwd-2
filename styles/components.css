@@ -10,7 +10,30 @@ Exemplo: botões, links, imputs em geral.
 
 
 /*+=================================================+ ITENS PRINCIPAIS +=================================================+*/
+/*Scroll*/
+/*-------------- Background/ScrollBar --------------*/
+body::-webkit-scrollbar {
+    width: 5px;
+}
+  
+body::-webkit-scrollbar-track{
+    background: var(--c2);
+}
+  
+body::-webkit-scrollbar-thumb{
+    background-color: var(--c3);
+    border-radius: 2px;
+}
+
 /*+-----------------------+ Itens do cabeçalho +-----------------------+*/
+/*Itens da logo*/
+.logo-div img{
+    height: 5rem;
+    border: 1px solid var(--c4);
+    border-radius: 5px;
+    transition: all .2s;
+}
+
 /*lista dos botões do menu*/
 .li-btn{
     display: inline;
