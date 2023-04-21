@@ -65,7 +65,7 @@ Exemplo: botões, links, imputs em geral.
         border-radius: 5px;
         border: solid 1px var(--t-c-1);
     }
-    
+
 /*+--------------------</> Rodapé </>--------------------+*/
 
     .ft-text{
@@ -179,6 +179,7 @@ Exemplo: botões, links, imputs em geral.
 
 
 /*+--------------------</> Index components </>--------------------+*/
+
     .search-div input{
         position: relative;
 

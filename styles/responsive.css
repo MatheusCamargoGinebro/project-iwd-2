@@ -10,7 +10,6 @@ Exemplo: tamanhos e quebras de linha
 -Anotação: passou no https://validator.w3.org como css sem erros (desde o último teste). 21/04/2023 17:18
 */
 
-
 @media (max-width: 550px){
     .logo-div div p{ display: none }
 }

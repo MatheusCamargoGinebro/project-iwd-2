@@ -11,6 +11,7 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
 */
 
 /*+--------------------</> Cabeçalho </>--------------------+*/
+
     .logo-div img:hover{
         border-color: var(--d-c-3);
     }
@@ -44,13 +45,14 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
         transform-origin: bottom left;
     }
 
-
 /*+--------------------</> Rodapé </>--------------------+*/
+
     .ft-text a:hover{
         color:var(--e-c-2);
     }
 
 /*+--------------------</> Formulário </>--------------------+*/
+
     /*Link de esqueceu a senha do form de login*/
     .form-item a:hover{
         color: var(--d-c-3);
@@ -93,7 +95,6 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
     #imageFile:hover{
         color: var(--t-c-1);
     }
-
 
 /*+--------------------</> Index </>--------------------+*/
 

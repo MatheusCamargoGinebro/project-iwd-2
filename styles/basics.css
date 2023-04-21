@@ -10,7 +10,7 @@ Exemplo: Fontes, medidas pré-definidas, palhetas de cores, formatos, etc.
 -Anotação: passou no https://validator.w3.org como css sem erros (desde o último teste). 21/04/2023 17:18
 */
 
-/*Importando MUITOS formatos de fonte ROBOTO*/
+/*Importando MUITAS fontes Roboto*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 /*Definindo variáveis de cor e parâmetros de texto e rolagem*/
@@ -51,5 +51,4 @@ html{
     box-sizing: border-box;
     text-decoration: none;
     user-select: none;
-    
 }
