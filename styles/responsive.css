@@ -1,0 +1,24 @@
+/*
+O=========================================================O
+|---------------------------------------------------------|
+| Folha de estilo para tratar de responsibilidade do site |
+|---------------------------------------------------------|
+O=========================================================O
+
+Exemplo: tamanhos e quebras de linha
+
+-Anotação: passou no https://validator.w3.org como css sem erros (desde o último teste). 21/04/2023 17:18
+*/
+
+
+@media (max-width: 550px){
+    .logo-div div p{ display: none }
+}
+
+@media (max-width: 1200px){
+    .gridarea{ grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 750px){
+    .gridarea{ grid-template-columns: 1fr; }
+}

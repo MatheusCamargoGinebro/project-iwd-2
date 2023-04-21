@@ -6,133 +6,243 @@ O==================================================================O
 O==================================================================O
 
 Exemplo: botões, links, imputs em geral.
+
+-Anotação: passou no https://validator.w3.org como css sem erros (desde o último teste). 21/04/2023 17:16
 */
 
 
 /*+=================================================+ ITENS PRINCIPAIS +=================================================+*/
-/*Scroll*/
-/*-------------- Background/ScrollBar --------------*/
-body::-webkit-scrollbar {
-    width: 5px;
-}
-  
-body::-webkit-scrollbar-track{
-    background: var(--c2);
-}
-  
-body::-webkit-scrollbar-thumb{
-    background-color: var(--c3);
-    border-radius: 2px;
-}
+/*+--------------------</> ScrollBar </>--------------------+*/
+    body::-webkit-scrollbar {
+        width: 5px;
+    }
+    
+    body::-webkit-scrollbar-track{
+        background: var(--d-c-2);
+    }
+    
+    body::-webkit-scrollbar-thumb{
+        background-color: var(--d-c-3);
+        border-radius: 2px;
+    }
 
-/*+-----------------------+ Itens do cabeçalho +-----------------------+*/
-/*Itens da logo*/
-.logo-div img{
-    height: 5rem;
-    border: 1px solid var(--c4);
-    border-radius: 5px;
-    transition: all .2s;
-}
+/*+--------------------</> Cabeçalho </>--------------------+*/
 
-/*lista dos botões do menu*/
-.li-btn{
-    display: inline;
-    transition: all .2s;
-}
+    .logo-div img{
+        height: 5rem;
+        border: 1px solid var(--t-c-1);
+        border-radius: 5px;
+        
+        transition: all .2s;
+    }
 
-/*Botão em sí*/
-.menu-btn{
-    font-size: 16px;
-    color: var(--c4);
-    text-decoration: none;
-    margin: 10px;
+    .menu-div nav{
+        margin-left: auto;
+    }
 
-    display:inline-block;
-    position: relative;
-    transition: all .2s;
-}
+    .li-btn{
+        display: inline;
+        
+        transition: all .2s;
+    }
 
-/*Detalhamento de botões de login/registro*/
-#SingUp{
-    padding: 5px 15px 5px 15px;
-    border-radius: 5px;
-    border: solid 1px var(--c4);
-}
+    .menu-btn{
+        position: relative;
+        display:inline-block;
 
-/* +-----------------------+Itens do footer +-----------------------+*/
-/*Texto do rodapé*/
-.ft-text{
-    color: var(--c4);
-    font-size: 15px;
-}
+        margin: 10px;
+        
+        text-decoration: none;
+        font-size: 16px;
+        color: var(--t-c-1);
 
-/*link do rodapé*/
-.ft-text a{
-    color: var(--c5);
-    font-weight: bold;
-    transition: all .2s;
-}
+        transition: all .2s;
+    }
 
+    #SingUp{
+        padding: 5px 15px 5px 15px;
+
+        border-radius: 5px;
+        border: solid 1px var(--t-c-1);
+    }
+    
+/*+--------------------</> Rodapé </>--------------------+*/
+
+    .ft-text{
+        color: var(--t-c-1);
+
+        font-size: 15px;
+    }
+
+    .ft-text a{
+        color: var(--e-c-1);
+        font-weight: bold;
+        
+        transition: all .2s;
+    }
 
 /*+=================================================+ ITENS SECUNDARIOS +=================================================+*/
-.form-title h1{
-    color: var(--c4);
-}
-.form-item a{
-    margin-left: auto;
-    margin-right: 10px;
-    margin-top: 7px;
-    text-decoration: none;
-    color: var(--c4);
 
-    transition: all .2s;
-}
-
-.label-form{
-    margin-left: 3px;
-    color: var(--c4);
-    font-size: 13px;
-    margin-bottom: 8px;
-}
-.input-form{
-    outline: none;
-
-    padding: 5px;
-    min-width: 35rem;
-
-    background-color: var(--c1);
-    color: var(--c4);
+/*+--------------------</> Form [1/2]</>--------------------+*/
+    .form-title h1{
+        color: var(--t-c-1);
+    }
     
-    outline: none;
-    border:none;
-    border-bottom: 1px solid var(--c2);
-    
-    transition: all .2s;
-}
-.input-form::placeholder{
-    color: var(--c3);
-}
+    .form-item a{
+        margin: 7px 10px 0px auto;
 
-.primary-btn{
-    cursor: pointer;
+        color: var(--t-c-1);
 
-    margin-bottom: 10px;
-    padding: 5px 15px;
-    width: 100px;
+        transition: all .2s;
+    }
 
-    border-radius: 5px;
-    border: 1px solid var(--c4);
-    background-color: var(--c1);
-    color: var(--c4);
+    .label-form{
+        margin: 0px 0px 8px 3px;
 
-    transition: all .2s;
-}
+        font-size: 13px;
+        color: var(--t-c-1);
+    }
 
-.submit-div p{
-    color: var(--c4);
-}
-.submit-div a{
-    text-decoration: none;
-    color: var(--c5);
-    transition: all .2s;
-}
+    .input-form{
+        padding: 5px;
+
+        background-color: var(--d-c-1);
+        border:none;
+        border-bottom: 1px solid var(--d-c-2);
+        outline: none;
+
+        color: var(--t-c-2);
+        
+        transition: all .2s;
+    }
+
+    .input-form::placeholder{
+        color: var(--t-c-3);
+    }
+
+/*+--------------------</> Form [2/2]</>--------------------+*/
+    textarea{
+        height: 20rem;
+        resize:none;
+        padding: 5px;
+
+        outline: none;
+        border: 1px solid var(--d-c-2);
+
+        background-color: var(--d-c-1);
+        color: var(--t-c-2);
+
+        transition: all .2s;
+    }
+    textarea::placeholder{
+        color:var(--t-c-3);
+    }
+
+    .primary-btn{
+        min-width: 100px;
+        max-width: fit-content;
+
+        margin-bottom: 10px;
+        padding: 5px 15px;
+        
+        border-radius: 5px;
+        border: 1px solid var(--t-c-1);
+        background-color: var(--d-c-1);
+        color: var(--t-c-1);
+
+        cursor: pointer;
+        transition: all .2s;
+    }
+
+    #imageFile{
+        width: fit-content;
+        padding-right: 6px;
+
+        border: 1px solid var(--d-c-3);
+        border-radius: 5px;
+
+        font-size: 15px;
+        color: var(--t-c-2);
+
+        cursor: pointer;
+    }
+
+    .submit-div p{
+        color: var(--t-c-1);
+    }
+
+    .submit-div a{
+        color: var(--e-c-1);
+
+        transition: all .2s;
+    }
+
+
+/*+--------------------</> Index components </>--------------------+*/
+    .search-div input{
+        position: relative;
+
+        width: 100%;
+        padding: 5px 10px 5px 40px;
+        
+        outline: none;
+        border: none;
+        border-radius: 5px;
+
+        z-index: 1;
+        transition: all .1s;
+    }
+
+    .search-div img{
+        position: relative;
+
+        top: -24px;
+        height: 23px;
+        padding: 0px 6px;
+
+        border-right: 1px solid black;
+
+        z-index: 1;
+    }
+
+
+    .object-div{
+        width: 35rem;
+        height: 30rem;
+
+        border-radius: 16px;
+        background-color: var(--d-c-1);
+
+        
+        overflow: hidden;
+        scale: 1;
+        transition: all .2s;
+    }
+
+    .object-img-div{
+        display: flex;
+        justify-content: center;
+
+        width: 100%;
+        height: 60%;
+
+        overflow: hidden;
+        background-color: var(--d-c-2);
+    }
+
+    .object-title-div{
+        padding: 3px 10px;
+        
+        border-bottom: 1px solid var(--d-c-2);
+        color: var(--t-c-1);
+    }
+
+    .object-text-div{
+        padding: 3px 10px;
+
+        overflow-wrap: break-word;
+        
+        color:var(--t-c-2);
+    }
+
+/**/

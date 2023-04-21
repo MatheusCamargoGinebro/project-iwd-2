@@ -6,31 +6,50 @@ O==================================================O
 O==================================================O
 
 Exemplo: Fontes, medidas pré-definidas, palhetas de cores, formatos, etc.
+
+-Anotação: passou no https://validator.w3.org como css sem erros (desde o último teste). 21/04/2023 17:18
 */
+
+/*Importando MUITOS formatos de fonte ROBOTO*/
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-/*Favicon font
-@import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
- */
+/*Definindo variáveis de cor e parâmetros de texto e rolagem*/
 html{
-    --c1: #202529;
-    --c2: #32383D;
-    --c3: #4C555C;
-    --c4: #ffffff;
-    --c5: #7e75d0;
+    /*Usando a regra das 3 cores*/
+    /*Divs Colors*/
+    --d-c-1: #202529;
+    --d-c-2: #32383D;
+    --d-c-3: #4C555C;
 
+    /*Text Colors*/
+    --t-c-1: #ffffff;
+    --t-c-2: #aeaeae;
+    --t-c-3: #727272;
+
+    /*emphasis colors*/
+    --e-c-1: #7e75d0;
+    --e-c-2: #5a50b7;
+    --e-c-3: #4235c7;  
+
+    /*preset colors*/
     --errorColor: #e46969;
+    --rightColor: #69e484;
+    --warningColor: #e4de69;
 
+    /*Configurações de fonte*/
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
     
+    /*Scroll da página*/
     scroll-behavior: smooth;
 }
 
+/*Definições padrões de tamanhos e distâncias*/
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     text-decoration: none;
     user-select: none;
+    
 }

@@ -1,6 +1,0 @@
-This favicon was generated using the following font:
-
-- Font Title: Architects Daughter
-- Font Author: Copyright (c) 2010, Kimberly Geswein (kimberlygeswein.com)
-- Font Source: http://fonts.gstatic.com/s/architectsdaughter/v18/KtkxAKiDZI_td1Lkx62xHZHDtgO_Y-bvfY5q4szgE-Q.ttf
-- Font License: SIL Open Font License, 1.1 (http://scripts.sil.org/OFL))

@@ -1,46 +1,138 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html> <!--< Passou pelo https://validator.w3.org sem erros em 21/04/2023 às 18:19 >-->
+<html lang="pt-br">
   <head>
-
-    <!--<OBS: O site https://validator.w3.org/ estava apontando estas três tags <meta> como erradas pois não tinham efeito no site,
-    porém, decidimos não removê-las, uma vez que nós sabemos que são tags importantes (para a responsividade do site, e para os caracteres que utilizamos)>-->
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="../styles/basics.css">
-    <link rel="stylesheet" href="../styles/divs.css">
-    <link rel="stylesheet" href="../styles/components.css">
-    <link rel="stylesheet" href="../styles/animations.css">
 
-    <link rel="icon" type="image/x-icon" href="/imgs/favicon/favicon-32x32.png">
-    <title>Projeto IWD-2 - Home</title>
+    <!--< Importanto folhas de estilo >-->
+    <link rel="stylesheet" href="../styles/basics.css" />      <!--< Folha de estilo responsável por definir pontos básicos >-->
+    <link rel="stylesheet" href="../styles/divs.css" />        <!--< Folha de estilo responsável por definir o tamanho e características das divs  >-->
+    <link rel="stylesheet" href="../styles/components.css" />  <!--< Folha de estilo responsável por dar características aos componentes >-->
+    <link rel="stylesheet" href="../styles/animations.css" />  <!--< Folha de estilo responsável pela animação dos componentes  >-->
+    <link rel="stylesheet" href="../styles/responsive.css" />  <!--< Folha de estilo responsável pela responsividade da página >-->
+
+     <!--< Puxando o ícone do site >-->
+    <link rel="icon" type="image/x-icon" href="/imgs/favicon/the_ifers_icon.png" />
+
+     <!--< Definindo o título do site >-->
+    <title>Projeto IWD-2 - Form</title>
   </head>
-  
+
   <body>
-    
+    <!--< Header (cabeçalho do site) >-->
     <header class="menu-div">
-      <div class="logo-div">
-        <a href="#"><img src="../imgs/favicon/icon 512x512.png" alt="Logo"></a>
+
+      <div class="logo-div"> <!--< Div da logo do site >-->
+        <a href="#">
+          <img src="../imgs/favicon/the_ifers_icon.png" alt="Logo"/>
+        </a>
         <div>
           <p>The Ifers</p>
         </div>
       </div>
-      <nav>
+
+      <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
         <ul>
-          <li class="li-btn"><a class="menu-btn hover-underline-animation" href="./index.html" >Home</a></li>
-          <li class="li-btn"><a class="menu-btn hover-underline-animation" href="./forms.html" >Form</a></li>
-          <li class="li-btn"><a class="menu-btn" href="./login.html" id="SingIn">Sign in</a></li>
-          <li class="li-btn"><a class="menu-btn" href="./register.html" id="SingUp">Sign up</a></li>
+          <li class="li-btn">
+            <a class="menu-btn hover-underline-animation" href="./index.html">Home</a>
+          </li>
+          <li class="li-btn">
+            <a class="menu-btn hover-underline-animation" href="./forms.html">Form</a>
+          </li>
+          <li class="li-btn">
+            <a class="menu-btn" href="./login.html" id="SingIn">Sign in</a>
+          </li>
+          <li class="li-btn">
+            <a class="menu-btn" href="./register.html" id="SingUp">Sign up</a>
+          </li>
         </ul>
       </nav>
+
     </header>
 
+    <!--< Div do conteúdo central (todo o conteúdo do site fica aqui) >-->
     <div class="content-div">
+      <div class="search-div">
+        <form action="search">
+          <input type="search" name="search" id="searchForm" placeholder="Pesquisar item por tiítulo..."/>
+          <img src="../imgs/icons/search_icon.png" alt="icon" />
+        </form>
+      </div>
 
+      <!--< Div para centralizar a div gridarea >-->
+      <div class="ideas-div">
 
+        <!--< Div onde ficam os cards >-->
+        <div class="gridarea">
+
+          <!--< Card de exemplo >-->
+          <div class="object-div" id="card0"><!--<OBS: descobrir como vincular a ID ao título para a futura feature de pesquisa por título>-->
+            <div class="object-img-div">
+              <img src="../imgs/projeto_logo.png" alt="Image" />
+            </div>
+            <div class="object-title-div">
+              <h1>The Ifers</h1>
+              <!--< min: 1; max:18 >-->
+            </div>
+            <div class="object-text-div">
+              <p>Os The Ifers são alunos do Instituto Federal que estudam informática integrado ao ensino médio e são conhecidos por sua habilidade em programação. Eles são dedicados, comprometidos com a excelência e têm paixão por tecnologia, buscando constantemente aprender e desenvolver habilidades para criar soluções eficientes e inovadoras.</p>
+              <!--< min: 1; max:222 >-->
+            </div>
+          </div>
+
+          <!--< Card de exemplo >-->
+          <div class="object-div" id="card1">
+            <div class="object-img-div">
+              <img src="../imgs/default_image.png" alt="Image" />
+            </div>
+            <div class="object-title-div">
+              <h1>Título</h1>
+              <!--< min: 1; max:18 >-->
+            </div>
+            <div class="object-text-div">
+              <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum laboriosam deserunt, voluptate, id fugiat saepe temporibus voluptatibus repudiandae optio illum accusantium? Praesentium ducimus quidem ipsum aliquam esse aliquid dolore voluptas!</p>
+              <!--< min: 1; max:222 >-->
+            </div>
+          </div>
+
+          <!--< Card de exemplo >-->
+          <div class="object-div" id="card2">
+            <div class="object-img-div">
+              <img src="../imgs/default_image.png" alt="Image" />
+            </div>
+            <div class="object-title-div">
+              <h1>Título</h1>
+              <!--< min: 1; max:18 >-->
+            </div>
+            <div class="object-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum laboriosam deserunt, voluptate, id fugiat saepe temporibus voluptatibus repudiandae optio illum accusantium? Praesentium ducimus quidem ipsum aliquam esse aliquid dolore voluptas! </p>
+              <!--< min: 1; max:222 >-->
+            </div>
+          </div>
+
+          <!--< Card de exemplo >-->
+          <div class="object-div" id="card3">
+            <div class="object-img-div">
+              <img src="../imgs/default_image.png" alt="Image" />
+            </div>
+            <div class="object-title-div">
+              <h1>Título</h1>
+              <!--< min: 1; max:18 >-->
+            </div>
+            <div class="object-text-div">
+              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum laboriosam deserunt, voluptate, id fugiat saepe temporibus voluptatibus repudiandae optio illum accusantium? Praesentium ducimus quidem ipsum aliquam esse aliquid dolore voluptas!</p>
+              <!--< min: 1; max:222 >-->
+            </div>
+          </div>
+
+        </div>
+      </div>
     </div>
 
+    <!--< Rodapé >-->
     <footer class="footer-div">
       <p class="ft-text">Site elaborado por: <a href="https://github.com/MatheusCamargoGinebro">Matheus Camargo Ginebro CP3016153</a> e <a href="#">Matheus Rodrigues Martins CP3016277</a>.</p>
     </footer>
