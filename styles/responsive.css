@@ -1,7 +1,7 @@
 /*
 O=========================================================O
 |---------------------------------------------------------|
-| Folha de estilo para tratar de responsibilidade do site |
+| Folha de estilo para tratar de responsivilidade do site |
 |---------------------------------------------------------|
 O=========================================================O
 
@@ -20,4 +20,5 @@ Exemplo: tamanhos e quebras de linha
 
 @media (max-width: 750px){
     .gridarea{ grid-template-columns: 1fr; }
+    .footer-div p{font-size: 80%;}
 }

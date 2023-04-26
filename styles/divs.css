@@ -127,6 +127,7 @@ body{
         
         height: 45px;
         min-width: 35rem;
+        max-width: 55%;
         width: 65vw;
 
         padding: 10px 15px 10px 15px;
@@ -150,7 +151,7 @@ body{
     .gridarea{
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
-        grid-template-rows: auto;
+        grid-template-rows: 30rem;
         gap: 20px;
     }
 
