@@ -120,6 +120,7 @@ Exemplo: botões, links, imputs em geral.
         color: var(--t-c-3);
     }
 
+
 /*+--------------------</> Form [2/2]</>--------------------+*/
     textarea{
         height: 20rem;
@@ -136,6 +137,13 @@ Exemplo: botões, links, imputs em geral.
     }
     textarea::placeholder{
         color:var(--t-c-3);
+    }
+
+    .input-form:valid, textarea:valid{
+        border-color: var(--rightColor);
+    }
+    .input-form:invalid, textarea:invalid{
+        border-color: var(--errorColor);
     }
 
     .primary-btn{
