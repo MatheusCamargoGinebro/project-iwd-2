@@ -113,6 +113,7 @@ Exemplo: botões, links, imputs em geral.
 
         color: var(--t-c-2);
         
+        z-index: 1;
         transition: all .2s;
     }
 
@@ -133,17 +134,20 @@ Exemplo: botões, links, imputs em geral.
         background-color: var(--d-c-1);
         color: var(--t-c-2);
 
+        z-index: 1;
         transition: all .2s;
     }
+    
     textarea::placeholder{
         color:var(--t-c-3);
     }
 
-    .input-form:valid, textarea:valid{
-        border-color: var(--rightColor);
-    }
-    .input-form:invalid, textarea:invalid{
-        border-color: var(--errorColor);
+    #cont{
+        color: var(--t-c-3);
+        margin: -17px 7px auto auto;
+
+        z-index: 3;
+        transition: all .2s;
     }
 
     .primary-btn{
@@ -173,6 +177,9 @@ Exemplo: botões, links, imputs em geral.
         color: var(--t-c-2);
 
         cursor: pointer;
+
+        z-index: 1;
+        transition: all .2s;
     }
 
     .submit-div p{
@@ -254,4 +261,21 @@ Exemplo: botões, links, imputs em geral.
         color:var(--t-c-2);
     }
 
+/*+--------------------</> Componentes de erro de formulário </>--------------------+*/
+
+    .error-message{
+        position:absolute;
+        color: var(--errorColor);
+        margin-left: 3px;
+        margin-top: 35px;
+        z-index: 0;
+
+        transition: all .2s;
+    }
+
+    #form-description-error{
+        margin-top: 200px;
+    }
+
 /**/
+    

@@ -71,8 +71,6 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
 
     .input-form:focus{
         padding-left: 10px;
-        
-        border-bottom: 1px solid var(--t-c-1);
     }
 
     textarea:hover{
@@ -82,7 +80,6 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
 
     textarea:focus{
         border-radius: 0px;
-        border-color: var(--t-c-1);
     }
 
 
@@ -94,6 +91,13 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
 
     #imageFile:hover{
         color: var(--t-c-1);
+    }
+
+    .valid:focus{
+        border-color: var(--rightColor);
+    }
+    .invalid{
+        border-color: var(--errorColor);
     }
 
 /*+--------------------</> Index </>--------------------+*/

@@ -69,17 +69,21 @@
           <!--< Itens do formulário >-->
           <div class="form-item">
             <label for="imageTitle" class="label-form">Título da imagem:</label>
-            <input type="text" name="imageTitle" id="imageTitle" class="input-form" placeholder="insira o título da imagem..." required/>
+            <input type="text" name="imageTitle" id="form-title" class="input-form" placeholder="insira o título da imagem..."/>
+            <p class="error-message" id="form-title-error">Tamanho do título inválido.</p>
           </div>
 
           <div class="form-item">
             <label for="imageDescription" class="label-form">Descrição da imagem:</label>
-            <textarea name="imageDescription" id="imageDescription" placeholder="insira a descrição da imagem..." required></textarea>
+            <textarea name="imageDescription" id="form-description" placeholder="insira a descrição da imagem..."></textarea>
+            <p id="cont">-/222</p>
+            <p class="error-message" id="form-description-error">Tamanho da descrição inválido.</p>
           </div>
 
           <div class="form-item">
             <label for="imageFile" class="label-form">Imagem:</label>
             <input type="file" name="imageFile" id="imageFile" accept="image/jpeg, image/png" required/>
+            <p class="error-message" id="form-image-error">Insira uma imagem.</p>
           </div>
           
           <!--< Botão de submit do formulário (finalizar formulário) >-->
@@ -95,5 +99,9 @@
     <footer class="footer-div">
       <p class="ft-text">Site elaborado por: <a href="https://github.com/MatheusCamargoGinebro" target="_blank">Matheus Camargo Ginebro CP3016153</a> e <a href="#">Matheus Rodrigues Martins CP3016277</a>.<br></p>
     </footer>
+
+    <!--< Carregando Scripts >-->
+    <script src="../scripts/defaultScripts.js"></script> <!--< Script básico >-->
+    <script src="../scripts/js/formsScripts.js"></script> <!--< Script específico da página >-->
   </body>
 </html>

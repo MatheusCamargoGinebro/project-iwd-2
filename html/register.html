@@ -69,25 +69,29 @@
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="userName" class="label-form">Novo nome de usuário:</label>
-            <input type="text" name="userName" id="userName" class="input-form" placeholder="insira seu nome de usuário..." required/>
+            <input type="text" name="userName" id="register-username" class="input-form" placeholder="insira seu nome de usuário..."/>
+            <p class="error-message" id="register-username-error">Nome de usuário inválido.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="userEmail" class="label-form">Novo email</label>
-            <input type="email" name="userEma" id="userEmail" class="input-form" placeholder="insira seu email..." required/>
+            <input type="email" name="userEma" id="register-email" class="input-form" placeholder="insira seu email..."/>
+            <p class="error-message" id="register-email-error">Email inválido.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="newPassword" class="label-form">Nova senha:</label>
-            <input type="password" name="newPassword" id="newPassword" class="input-form" placeholder="insira sua senha..." required/>
+            <input type="password" name="newPassword" id="register-password" class="input-form" placeholder="insira sua senha..."/>
+            <p class="error-message" id="register-password-error">Senha inválida.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
-            <label for="newPasswordConfirmation" class="label-form">Confirmação de senha:</label>
-            <input type="password" name="newPasswordConfirmation" id="newPasswordConfirmation" class="input-form" placeholder="insira sua senha novamente..." required/>
+            <label for="newPasswordConfirmation" class="label-form">Confirmar senha:</label>
+            <input type="password" name="newPasswordConfirmation" id="register-password-confirmation" class="input-form" placeholder="insira sua senha novamente..."/>
+            <p class="error-message" id="register-password-confirmation-error">Tamanho Inválido.</p>
           </div>
 
           <!--< Item submit (finalizar formulário) >-->
@@ -105,5 +109,9 @@
     <footer class="footer-div">
       <p class="ft-text">Site elaborado por: <a href="https://github.com/MatheusCamargoGinebro" target="_blank">Matheus Camargo Ginebro CP3016153</a> e <a href="#">Matheus Rodrigues Martins CP3016277</a>.</p>
     </footer>
+
+    <!--< Carregando Scripts >-->
+    <script src="../scripts/defaultScripts.js"></script> <!--< Script básico >-->
+    <script src="../scripts/js/registerScripts.js"></script> <!--< Script específico da página >-->
   </body>
 </html>
