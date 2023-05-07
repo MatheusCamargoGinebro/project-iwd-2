@@ -23,19 +23,21 @@ Exemplo: tamanhos e quebras de linha
     .footer-div p{font-size: 80%;}
 }
 
-@media (max-width: 415px){
+@media (max-width: 500px){
+    /*+--------------------------+<\> HEADER <\>+--------------------------+*/
     .menu-div .navbar-div {
         display: none;
     }
+
     .logo-div {
         margin-left: auto;
     }
-
 
     .nav-bar-activator-div{
         display: block;
         z-index: 10;
     }
+
     #nav-bar-activator{
         appearance: none;
         position:fixed;
@@ -44,6 +46,7 @@ Exemplo: tamanhos e quebras de linha
 
         transition: all .2s ease-in-out;
     }
+
     #nav-bar-activator::before{
         content: "";
         display: inline-block;
@@ -52,10 +55,12 @@ Exemplo: tamanhos e quebras de linha
         background-image: url(../imgs/icons/nav-bar-icon-1.png);
         background-size: cover;
     }
+
     #nav-bar-activator:checked::before{
         background-image: url(../imgs/icons/nav-bar-icon-2.png);
         background-size: cover;
     }
+
     .side-navbar-div{
         display: block;
         position: fixed;
@@ -71,5 +76,17 @@ Exemplo: tamanhos e quebras de linha
         border-right: 1px solid var(--e-c-2);
 
         transition: all .2s ease-in-out;
+    }
+
+    /*+--------------------------+<\> FOOTER <\>+--------------------------+*/
+    .footer-div p{font-size: 70%;}
+
+    
+    /*+--------------------------+<\> Index <\>+--------------------------+*/
+    .object-div{
+        scale: 0.9;
+    }
+    .object-div:hover{
+        scale: 1;
     }
 }
