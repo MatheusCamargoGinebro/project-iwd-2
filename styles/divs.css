@@ -32,7 +32,7 @@ body{
 
         background-color: var(--d-c-1);
 
-        z-index: 10;
+        z-index: 9;
     }
 
     .logo-div{
@@ -40,6 +40,7 @@ body{
 
         font-size: 1.9rem;
         color: var(--t-c-1);
+
     }
 
     .logo-div div{
@@ -48,6 +49,18 @@ body{
 
         font-size: 3rem;
         margin-left: 5px;
+    }
+
+    .navbar-div{
+        margin-left: auto;
+    }
+
+    .side-navbar-div{
+        display: none;
+    }
+
+    .nav-bar-activator-div{
+        display: none;
     }
 
 /*+--------------------</> Div central </>--------------------+*/
@@ -72,7 +85,7 @@ body{
         align-items: end;
         justify-content: center;
         padding: 2rem;
-        z-index: 10;
+        z-index: 8;
     }
 
 /*+=================================================+ DIVS SECUNDARIAS +=================================================+*/

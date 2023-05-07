@@ -22,3 +22,54 @@ Exemplo: tamanhos e quebras de linha
     .gridarea{ grid-template-columns: 1fr; }
     .footer-div p{font-size: 80%;}
 }
+
+@media (max-width: 415px){
+    .menu-div .navbar-div {
+        display: none;
+    }
+    .logo-div {
+        margin-left: auto;
+    }
+
+
+    .nav-bar-activator-div{
+        display: block;
+        z-index: 10;
+    }
+    #nav-bar-activator{
+        appearance: none;
+        position:fixed;
+        transform: translate(-50%, -50%);
+        
+
+        transition: all .2s ease-in-out;
+    }
+    #nav-bar-activator::before{
+        content: "";
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url(../imgs/icons/nav-bar-icon-1.png);
+        background-size: cover;
+    }
+    #nav-bar-activator:checked::before{
+        background-image: url(../imgs/icons/nav-bar-icon-2.png);
+        background-size: cover;
+    }
+    .side-navbar-div{
+        display: block;
+        position: fixed;
+
+        top: 0;
+        bottom: 0;
+        left: -75vw;
+
+        height:100vh;
+        width: 75vw;
+
+        background-color: var(--d-c-1);
+        border-right: 1px solid var(--e-c-2);
+
+        transition: all .2s ease-in-out;
+    }
+}

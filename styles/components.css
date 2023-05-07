@@ -36,14 +36,10 @@ Exemplo: botões, links, imputs em geral.
         transition: all .2s;
     }
 
-    .menu-div nav{
-        margin-left: auto;
-    }
-
     .li-btn{
         display: inline;
         
-        transition: all .2s;
+        transition: all .3s;
     }
 
     .menu-btn{
@@ -65,6 +61,34 @@ Exemplo: botões, links, imputs em geral.
         border-radius: 5px;
         border: solid 1px var(--t-c-1);
     }
+
+
+    .side-navbar-div nav{
+        margin-top: 8rem;
+        
+        border-top: 1px solid var(--t-c-3);
+    }
+
+    .side-navbar-div nav ul{
+        list-style-type: none;
+    }
+
+    .side-navbar-li-btn{
+        padding: 20px;
+
+
+        border-bottom: 1px solid var(--t-c-3);
+    }
+
+    .side-navbar-btn{
+        padding-left: 5px;
+
+        font-size: 2rem;
+
+        color: var(--t-c-1);
+        border-left: 1px solid var(--t-c-1);
+    }
+
 
 /*+--------------------</> Rodapé </>--------------------+*/
 

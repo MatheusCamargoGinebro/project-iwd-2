@@ -23,6 +23,29 @@
   <body>
     <!--< Header (cabeçalho do site) >-->
     <header class="menu-div">
+    
+    <div class="side-navbar-div" id="side-navbar-div">
+      <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
+        <ul>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="../index.html">Home</a>
+          </li>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./forms.html">Form</a>
+          </li>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./login.html">Sign in</a>
+          </li>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./register.html">Sign up</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+      <div class="nav-bar-activator-div">
+        <input type="checkbox" name="navbar-activator" id="nav-bar-activator"/>
+      </div>
 
       <div class="logo-div"> <!--< Div da logo do site >-->
         <a href="#">
@@ -33,22 +56,24 @@
         </div>
       </div>
 
-      <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
-        <ul>
-          <li class="li-btn">
-            <a class="menu-btn hover-underline-animation" href="../index.html">Home</a>
-          </li>
-          <li class="li-btn">
-            <a class="menu-btn hover-underline-animation" href="./forms.html">Form</a>
-          </li>
-          <li class="li-btn">
-            <a class="menu-btn" href="./login.html" id="SingIn">Sign in</a>
-          </li>
-          <li class="li-btn">
-            <a class="menu-btn" href="./register.html" id="SingUp">Sign up</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="navbar-div">
+        <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
+          <ul>
+            <li class="li-btn">
+              <a class="menu-btn hover-underline-animation" href="../index.html">Home</a>
+            </li>
+            <li class="li-btn">
+              <a class="menu-btn hover-underline-animation" href="./forms.html">Form</a>
+            </li>
+            <li class="li-btn">
+              <a class="menu-btn" href="./login.html" id="SingIn">Sign in</a>
+            </li>
+            <li class="li-btn">
+              <a class="menu-btn" href="./register.html" id="SingUp">Sign up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
     </header>
 
@@ -69,28 +94,28 @@
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="userName" class="label-form">Novo nome de usuário:</label>
-            <input type="text" name="userName" id="register-username" class="input-form" placeholder="insira seu nome de usuário..."/>
+            <input type="text" name="userName" id="register-username" class="input-form" placeholder="insira seu nome de usuário..." required/>
             <p class="error-message" id="register-username-error">Nome de usuário inválido.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="userEmail" class="label-form">Novo email</label>
-            <input type="email" name="userEma" id="register-email" class="input-form" placeholder="insira seu email..."/>
+            <input type="email" name="userEma" id="register-email" class="input-form" placeholder="insira seu email..." required/>
             <p class="error-message" id="register-email-error">Email inválido.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="newPassword" class="label-form">Nova senha:</label>
-            <input type="password" name="newPassword" id="register-password" class="input-form" placeholder="insira sua senha..."/>
+            <input type="password" name="newPassword" id="register-password" class="input-form" placeholder="insira sua senha..." required/>
             <p class="error-message" id="register-password-error">Senha inválida.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="newPasswordConfirmation" class="label-form">Confirmar senha:</label>
-            <input type="password" name="newPasswordConfirmation" id="register-password-confirmation" class="input-form" placeholder="insira sua senha novamente..."/>
+            <input type="password" name="newPasswordConfirmation" id="register-password-confirmation" class="input-form" placeholder="insira sua senha novamente..." required/>
             <p class="error-message" id="register-password-confirmation-error">Tamanho Inválido.</p>
           </div>
 

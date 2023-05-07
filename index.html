@@ -23,32 +23,57 @@
   <body>
     <!--< Header (cabeçalho do site) >-->
     <header class="menu-div">
+    
+    <div class="side-navbar-div" id="side-navbar-div">
+      <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
+        <ul>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./index.html">Home</a>
+          </li>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./html/forms.html">Form</a>
+          </li>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./html/login.html">Sign in</a>
+          </li>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./html/register.html">Sign up</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+      <div class="nav-bar-activator-div">
+        <input type="checkbox" name="navbar-activator" id="nav-bar-activator"/>
+      </div>
 
       <div class="logo-div"> <!--< Div da logo do site >-->
         <a href="#">
-          <img src="../imgs/favicon/the_ifers_icon.png" alt="Logo"/>
+          <img src="./imgs/favicon/the_ifers_icon.png" alt="Logo"/>
         </a>
         <div>
           <p>The Ifers</p>
         </div>
       </div>
 
-      <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
-        <ul>
-          <li class="li-btn">
-            <a class="menu-btn hover-underline-animation" href="./index.html">Home</a>
-          </li>
-          <li class="li-btn">
-            <a class="menu-btn hover-underline-animation" href="./html/forms.html">Form</a>
-          </li>
-          <li class="li-btn">
-            <a class="menu-btn" href="./html/login.html" id="SingIn">Sign in</a>
-          </li>
-          <li class="li-btn">
-            <a class="menu-btn" href="./html/register.html" id="SingUp">Sign up</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="navbar-div">
+        <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
+          <ul>
+            <li class="li-btn">
+              <a class="menu-btn hover-underline-animation" href="./index.html">Home</a>
+            </li>
+            <li class="li-btn">
+              <a class="menu-btn hover-underline-animation" href="./html/forms.html">Form</a>
+            </li>
+            <li class="li-btn">
+              <a class="menu-btn" href="./html/login.html" id="SingIn">Sign in</a>
+            </li>
+            <li class="li-btn">
+              <a class="menu-btn" href="./html/register.html" id="SingUp">Sign up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
     </header>
 

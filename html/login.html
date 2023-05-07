@@ -23,6 +23,29 @@
   <body>
     <!--< Header (cabeçalho do site) >-->
     <header class="menu-div">
+    
+    <div class="side-navbar-div" id="side-navbar-div">
+      <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
+        <ul>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="../index.html">Home</a>
+          </li>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./forms.html">Form</a>
+          </li>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./login.html">Sign in</a>
+          </li>
+          <li class="side-navbar-li-btn">
+            <a class="side-navbar-btn" href="./register.html">Sign up</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+      <div class="nav-bar-activator-div">
+        <input type="checkbox" name="navbar-activator" id="nav-bar-activator"/>
+      </div>
 
       <div class="logo-div"> <!--< Div da logo do site >-->
         <a href="#">
@@ -33,22 +56,24 @@
         </div>
       </div>
 
-      <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
-        <ul>
-          <li class="li-btn">
-            <a class="menu-btn hover-underline-animation" href="../index.html">Home</a>
-          </li>
-          <li class="li-btn">
-            <a class="menu-btn hover-underline-animation" href="./forms.html">Form</a>
-          </li>
-          <li class="li-btn">
-            <a class="menu-btn" href="./login.html" id="SingIn">Sign in</a>
-          </li>
-          <li class="li-btn">
-            <a class="menu-btn" href="./register.html" id="SingUp">Sign up</a>
-          </li>
-        </ul>
-      </nav>
+      <div class="navbar-div">
+        <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
+          <ul>
+            <li class="li-btn">
+              <a class="menu-btn hover-underline-animation" href="../index.html">Home</a>
+            </li>
+            <li class="li-btn">
+              <a class="menu-btn hover-underline-animation" href="./forms.html">Form</a>
+            </li>
+            <li class="li-btn">
+              <a class="menu-btn" href="./login.html" id="SingIn">Sign in</a>
+            </li>
+            <li class="li-btn">
+              <a class="menu-btn" href="./register.html" id="SingUp">Sign up</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
 
     </header>
 
@@ -68,14 +93,14 @@
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="userName" class="label-form">Nome do usuário:</label>
-            <input type="text" name="userName" id="login-username" class="input-form" placeholder="insira seu nome de usuário..."/>
+            <input type="text" name="userName" id="login-username" class="input-form" placeholder="insira seu nome de usuário..." required/>
             <p class="error-message" id="login-username-error">Nome de usuário inválido.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="password" class="label-form">Senha do usuário:</label>
-            <input type="password" name="password" id="login-password" class="input-form" placeholder="insira sua senha..."/>
+            <input type="password" name="password" id="login-password" class="input-form" placeholder="insira sua senha..." required/>
             <p class="error-message" id="login-password-error">Senha inválida.</p>
             <a href="../html/register.html">Esqueceu a senha?</a>
           </div>
