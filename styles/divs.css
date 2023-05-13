@@ -107,7 +107,9 @@ background: linear-gradient(44deg, rgba(30,33,36,1) 0%, rgba(40,43,48,1) 15%, rg
         margin: 10rem auto;
         
         background-color: var(--d-c-1);
-        border-radius: 10px;
+        border: 1px solid var(--d-c-3);
+        padding-inline: 2px;
+        border-radius: 4px;
     }
 
     .form-title{
@@ -117,7 +119,6 @@ background: linear-gradient(44deg, rgba(30,33,36,1) 0%, rgba(40,43,48,1) 15%, rg
         margin-bottom: -3rem;
 
         border-bottom: 1px solid var(--d-c-3);
-        border-radius: 3px;
     }
 
     .form-item{
@@ -136,7 +137,6 @@ background: linear-gradient(44deg, rgba(30,33,36,1) 0%, rgba(40,43,48,1) 15%, rg
         font-size: 12px;
 
         border-top: 1px solid var(--d-c-3);
-        border-radius: 3px;
     }
 
 /*+--------------------</> Divs do index.html </>--------------------+*/

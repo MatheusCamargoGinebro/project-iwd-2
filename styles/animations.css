@@ -93,8 +93,7 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
 
     /*submit-div*/
     .primary-btn:hover{
-        background-color: var(--d-c-1);
-        border-color: var(--d-c-3);
+        border-color: var(--d-c-4);
     }
 
     #imageFile:hover{
