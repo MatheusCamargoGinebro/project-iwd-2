@@ -14,7 +14,9 @@ Exemplo: Tamanho, cor, formato e posição das divs.
 
 /*Div do body*/
 body{
-    background: linear-gradient(90deg, rgba(32,37,41,1) 0%, rgba(42,48,52,1) 15%, rgba(42,48,52,1) 85%, rgba(32,37,41,1) 100%);
+    
+    background: rgb(30,33,36);
+background: linear-gradient(44deg, rgba(30,33,36,1) 0%, rgba(40,43,48,1) 15%, rgba(30,33,36,1) 40%, rgba(40,43,48,1) 70%, rgba(30,33,36,1) 100%);
 }
 
 
@@ -31,6 +33,7 @@ body{
         padding: 3rem;
 
         background-color: var(--d-c-1);
+        border-bottom: 1px solid var(--d-c-2);
 
         z-index: 9;
     }
@@ -77,14 +80,18 @@ body{
     
     .footer-div{
         position: absolute;
-        background-color: var(--d-c-1);
 
-        width: 100%;
-        height: 15rem;
         display: flex;
         align-items: end;
         justify-content: center;
+
+        background-color: var(--d-c-1);
+        border-top: 1px solid var(--d-c-2);
+
+        width: 100%;
+        height: 15rem;
         padding: 2rem;
+
         z-index: 8;
     }
 
@@ -138,7 +145,7 @@ body{
         position: absolute;
         transform: translate(-50%, -50%);
         
-        height: 45px;
+        height: 47px;
         min-width: 35rem;
         max-width: 55%;
         width: 65vw;
@@ -147,8 +154,9 @@ body{
         top: 5rem;
         left: 50%;
 
-        border-radius: 5px;
+        border-radius: 2px;
         background-color: var(--d-c-1);
+        border: 1px solid var(--d-c-2);
 
         transition: .2s;
     }

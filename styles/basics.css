@@ -17,19 +17,20 @@ Exemplo: Fontes, medidas pré-definidas, palhetas de cores, formatos, etc.
 html{
     /*Usando a regra das 3 cores*/
     /*Divs Colors*/
-    --d-c-1: #202529;
-    --d-c-2: #32383D;
-    --d-c-3: #4C555C;
+    --d-c-1: #1e2124;
+    --d-c-2: #282b30;
+    --d-c-3: #36393e;
+    --d-c-4: #424549;
 
     /*Text Colors*/
     --t-c-1: #ffffff;
-    --t-c-2: #aeaeae;
-    --t-c-3: #727272;
+    --t-c-2: #ffffff87;
+    --t-c-3: #ffffff5d;
 
     /*emphasis colors*/
     --e-c-1: #7e75d0;
-    --e-c-2: #5a50b7;
-    --e-c-3: #4235c7;  
+    --e-c-2: #7e75d0c8;
+    --e-c-3: #7e75d09c;  
 
     /*preset colors*/
     --errorColor: #e46969;

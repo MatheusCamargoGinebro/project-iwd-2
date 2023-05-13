@@ -15,16 +15,18 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
     .logo-div img:hover{
         border-color: var(--d-c-3);
     }
+    
+    #SingIn:hover{
+        color: var(--d-c-4);
+    }
 
     #SingUp:hover{
         border-color: var(--d-c-3);
     }
 
-    #SingIn:hover{
-        color: var(--d-c-3);
-    }
 
 /*+-------< Animação de hover do menu >-------+*/
+
     .hover-underline-animation::after {
         position: absolute;
         width: 100%;
@@ -43,6 +45,12 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
     .hover-underline-animation:hover::after {
         transform: scaleX(1);
         transform-origin: bottom left;
+    }
+
+/*+-------< Animação de hover do menu Side-Navbar >-------+*/
+
+    .side-navbar-btn:hover{
+        background-color: var(--d-c-2);
     }
 
 /*+--------------------</> Rodapé </>--------------------+*/
@@ -113,7 +121,7 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
 
     .object-div:hover{
         scale: 1.09;
-
+        border-color: var(--t-c-3);
         cursor: pointer;
     }
 

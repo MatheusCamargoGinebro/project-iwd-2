@@ -42,7 +42,8 @@ Exemplo: tamanhos e quebras de linha
         appearance: none;
         position:fixed;
         transform: translate(-50%, -50%);
-        
+
+        cursor: pointer;
 
         transition: all .2s ease-in-out;
     }
@@ -73,7 +74,7 @@ Exemplo: tamanhos e quebras de linha
         width: 75vw;
 
         background-color: var(--d-c-1);
-        border-right: 1px solid var(--e-c-2);
+        border-right: 1px solid var(--d-c-4);
 
         transition: all .2s ease-in-out;
     }
