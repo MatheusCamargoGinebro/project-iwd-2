@@ -15,6 +15,11 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
     .logo-div img:hover{
         border-color: var(--d-c-3);
     }
+    @media (prefers-color-scheme:light){
+        .logo-div img:hover{
+            color: var(--t-c-1);
+        }
+    }
     
     #SingIn:hover{
         color: var(--d-c-4);
@@ -120,7 +125,7 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
 
     .object-div:hover{
         scale: 1.09;
-        border-color: var(--t-c-3);
+        border-color: var(--t-c-1);
         cursor: pointer;
     }
 

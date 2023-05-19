@@ -15,34 +15,75 @@ Exemplo: Fontes, medidas pré-definidas, palhetas de cores, formatos, etc.
 
 /*Definindo variáveis de cor e parâmetros de texto e rolagem*/
 html{
-    /*Usando a regra das 3 cores*/
-    /*Divs Colors*/
-    --d-c-1: #1e2124;
-    --d-c-2: #282b30;
-    --d-c-3: #36393e;
-    --d-c-4: #424549;
-
-    /*Text Colors*/
-    --t-c-1: #ffffff;
-    --t-c-2: #ffffff87;
-    --t-c-3: #ffffff5d;
-
-    /*emphasis colors*/
-    --e-c-1: #7e75d0;
-    --e-c-2: #7e75d0c8;
-    --e-c-3: #7e75d09c;  
-
-    /*preset colors*/
-    --errorColor: #e46969;
-    --rightColor: #69e484;
-    --warningColor: #e4de69;
-
     /*Configurações de fonte*/
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
     
     /*Scroll da página*/
     scroll-behavior: smooth;
+}
+
+@media (prefers-color-scheme:dark) {
+    html{
+        /*Usando a regra das 3 cores*/
+        /*Divs Colors*/
+        --d-c-1: #1e2124;
+        --d-c-2: #282b30;
+        --d-c-3: #36393e;
+        --d-c-4: #424549;
+
+        /*Text Colors*/
+        --t-c-1: #ffffff;
+        --t-c-2: #ffffff87;
+        --t-c-3: #ffffff5d;
+
+        /*emphasis colors*/
+        --e-c-1: #7e75d0;
+        --e-c-2: #7e75d0c8;
+        --e-c-3: #7e75d09c;  
+
+        /*preset colors*/
+        --errorColor: #e46969;
+        --rightColor: #69e484;
+        --warningColor: #e4de69;
+
+    }
+
+    body{
+        background: rgb(30,33,36);
+        background: linear-gradient(44deg, rgba(30,33,36,1) 0%, rgba(40,43,48,1) 15%, rgba(30,33,36,1) 40%, rgba(40,43,48,1) 70%, rgba(30,33,36,1) 100%);
+    }
+}
+
+@media (prefers-color-scheme:light) {
+    html{
+        /*Usando a regra das 3 cores*/
+        /*Divs Colors*/
+        --d-c-1: #fcfffe;
+        --d-c-2: #f4f8fb;
+        --d-c-3: #a09c9c;
+        --d-c-4: #424242;
+
+        /*Text Colors*/
+        --t-c-1: #202020;
+        --t-c-2: #202020c7;
+        --t-c-3: #0000007a;
+
+        /*emphasis colors*/
+        --e-c-1: #1e07e6;
+        --e-c-2: #2010b3d0;
+        --e-c-3: #1e07e6;   
+
+        /*preset colors*/
+        --errorColor: #e00000;
+        --rightColor: #08b42d;
+        --warningColor: #fff200;
+
+        font-weight: bolder;
+    }
+    body{
+        background-color: var(--d-c-2);
+    }
 }
 
 /*Definições padrões de tamanhos e distâncias*/

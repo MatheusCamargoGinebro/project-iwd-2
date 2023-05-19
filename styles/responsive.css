@@ -90,4 +90,10 @@ Exemplo: tamanhos e quebras de linha
     .object-div:hover{
         scale: 1;
     }
+
+    @media (prefers-color-scheme:light){
+        #nav-bar-activator{
+            filter: brightness(.2);
+        }
+    }
 }

@@ -35,6 +35,14 @@ Exemplo: botões, links, imputs em geral.
         
         transition: all .2s;
     }
+    @media (prefers-color-scheme:light){
+        .logo-div img{
+            border-color: var(--d-c-1);
+        }
+        .logo-div a{
+            filter: invert(1);
+        }
+    }
 
     .li-btn{
         display: inline;
@@ -164,7 +172,7 @@ Exemplo: botões, links, imputs em geral.
         padding: 5px;
 
         outline: none;
-        border: 1px solid var(--d-c-2);
+        border: 1px solid var(--d-c-3);
 
         background-color: var(--d-c-1);
         color: var(--t-c-2);
@@ -237,8 +245,10 @@ Exemplo: botões, links, imputs em geral.
         padding: 5px 10px 5px 40px;
         
         outline: none;
-        border: 1px solid var(--d-c-2);
-        border-radius: 2px;
+
+        background-color: var(--d-c-1);
+        color: var(--t-c-1);
+        border: 0;
 
         z-index: 1;
         transition: all .1s;
@@ -251,9 +261,12 @@ Exemplo: botões, links, imputs em geral.
         height: 25px;
         padding: 0px 5px;
 
-        border-right: 1px solid var(--d-c-4);
-
         z-index: 1;
+    }
+    @media (prefers-color-scheme:light){
+        .search-div img{
+            filter: invert(1);
+        }
     }
 
     .object-div{
@@ -282,6 +295,13 @@ Exemplo: botões, links, imputs em geral.
         border-bottom: 1px solid var(--d-c-2);
     }
 
+    @media (prefers-color-scheme:light){
+        .object-img-div{
+            background-color: var(--t-c-3);
+            border-bottom: 1px solid var(--d-c-4);
+        }
+    }
+
     .object-title-div{
         padding: 3px 10px;
         
@@ -295,6 +315,12 @@ Exemplo: botões, links, imputs em geral.
         overflow-wrap: break-word;
         
         color:var(--t-c-2);
+    }
+    
+    @media (prefers-color-scheme:light){
+        .object-text-div{
+            border-top: 1px solid var(--d-c-4);
+        }
     }
 
 /*+--------------------</> Componentes de erro de formulário </>--------------------+*/

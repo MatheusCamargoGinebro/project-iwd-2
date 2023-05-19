@@ -12,14 +12,6 @@ Exemplo: Tamanho, cor, formato e posição das divs.
 */
 
 
-/*Div do body*/
-body{
-    
-    background: rgb(30,33,36);
-background: linear-gradient(44deg, rgba(30,33,36,1) 0%, rgba(40,43,48,1) 15%, rgba(30,33,36,1) 40%, rgba(40,43,48,1) 70%, rgba(30,33,36,1) 100%);
-}
-
-
 /*+=================================================+ DIVS PRINCIPAIS +=================================================+*/
 /*+--------------------</> Divs de cabeçalho </>--------------------+*/
     
@@ -33,7 +25,7 @@ background: linear-gradient(44deg, rgba(30,33,36,1) 0%, rgba(40,43,48,1) 15%, rg
         padding: 3rem;
 
         background-color: var(--d-c-1);
-        border-bottom: 1px solid var(--d-c-2);
+        border-bottom: 1px solid var(--d-c-4);
 
         z-index: 9;
     }
@@ -43,7 +35,6 @@ background: linear-gradient(44deg, rgba(30,33,36,1) 0%, rgba(40,43,48,1) 15%, rg
 
         font-size: 1.9rem;
         color: var(--t-c-1);
-
     }
 
     .logo-div div{
@@ -156,7 +147,7 @@ background: linear-gradient(44deg, rgba(30,33,36,1) 0%, rgba(40,43,48,1) 15%, rg
 
         border-radius: 2px;
         background-color: var(--d-c-1);
-        border: 1px solid var(--d-c-2);
+        border: 1px solid var(--d-c-4);
 
         transition: .2s;
     }
