@@ -129,4 +129,8 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
         cursor: pointer;
     }
 
+    .object-div:hover .object-img-div img{
+        scale: 1.14;
+    }
+
 /**/

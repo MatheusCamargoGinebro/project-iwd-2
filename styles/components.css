@@ -295,6 +295,10 @@ Exemplo: botões, links, imputs em geral.
         border-bottom: 1px solid var(--d-c-2);
     }
 
+    .object-img-div img{
+        transition: all .2s;
+    }
+
     @media (prefers-color-scheme:light){
         .object-img-div{
             background-color: var(--t-c-3);
@@ -310,7 +314,7 @@ Exemplo: botões, links, imputs em geral.
     }
 
     .object-text-div{
-        padding: 3px 10px;
+        padding: 10px 10px;
 
         overflow-wrap: break-word;
         
