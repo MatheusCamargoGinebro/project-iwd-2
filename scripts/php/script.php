@@ -1,5 +1,6 @@
 <?php
 // Script PHP para rodar o formulário de cadastro de cards.
+
 ini_set("display_errors", 1);
 error_reporting(E_ALL);
 
@@ -8,7 +9,7 @@ $imageDescription = $_GET['imageDescription'];
 
 $hostname = 'localhost';
 $user = 'root';
-$password = 'ifsp';
+$password = '0001108917495.sp5'; // É a senha no meu S.O // Mudar quando for testar.
 $database = 'theIfers';
 
 $conn = mysqli_connect($hostname, $user, $password, $database);
@@ -18,12 +19,10 @@ if (!$conn) {
 
 } else { // Não é necessário testar os dados, pois eles já foram testados em javascript:
     $query ="insert into card (cardTitle, cardDescription) values ('$imageTitle', '$imageDescription')";
-
     $res = mysqli_query($conn, $query);
 }
 
 header("location: http://127.0.0.1:5500/index.html");
 
 die();
-
 ?>

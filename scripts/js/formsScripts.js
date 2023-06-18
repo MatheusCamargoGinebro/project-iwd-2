@@ -48,7 +48,6 @@ document.getElementById('form-title').addEventListener('input', function(e) {
 });
 
 // Verificar input de descrição:
-
 document.getElementById('form-description').addEventListener('input', function(e) {
     const description = e.target.value;
     const errorMessage = document.getElementById('form-description-error');
@@ -75,3 +74,57 @@ document.getElementById('form-description').addEventListener('input', function(e
     
     charCounter.innerHTML = description.length + "/222";
 });
+
+// Função para salvar a imagem em uma variável:
+function getImage() {
+    var input = document.getElementById('imageFile');
+    var file = input.files[0];
+    var reader = new FileReader();
+  
+    reader.onloadend = function() {
+      var image = reader.result;
+      // Temos a imagem em uma variável
+    }
+  
+    if (file) {
+      reader.readAsDataURL(file);
+    }
+}
+
+// Verifica input de imagem:
+document.getElementById("imageFile").addEventListener("change", function() {
+    checkForm.image = true;
+    getImage();
+});
+
+
+//++----------------------------</> FIREBASE </>----------------------------++\\ não funcionaaaaaaaaaaaaaaaaaaaaaaaa
+/*
+import firebase from "firebase/app";
+import "firebase/storage";
+
+// TODO: Replace the following with your app's Firebase project configuration
+// See: https://firebase.google.com/docs/web/learn-more#config-object
+const firebaseConfig = {
+  // ...
+  storageBucket: 'gs://theifers-database.appspot.com/'
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+
+// Initialize Cloud Storage and get a reference to the service
+const storage = firebase.storage();
+
+
+//Verifica o botão de submit:
+document.getElementById('form-submit-button').addEventListener('click', function (e){
+    if(checkForm.title == true && checkForm.description == true && checkForm.image == true){
+        // Mandando a imagem para o firebase, e pegando a URL:
+        const nomeImage = "imagem1";
+        const upload = storage.ref().child("images").child(nomeImage).put();
+    }else{
+        event.preventDefault(); // Não vai mandar os dados se tiver algo de errado;
+    }
+})*/
