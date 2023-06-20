@@ -209,6 +209,16 @@ Exemplo: botões, links, imputs em geral.
         transition: all .2s;
     }
 
+    /*Disable button*/
+    .disable{
+        border: 1px solid var(--d-c-2);
+        background-color: var(--d-c-2);
+        color: var(--t-c-3);
+
+        cursor: not-allowed;
+        transition: all .2s;
+    }
+
     #imageFile{
         width: fit-content;
         padding-right: 6px;

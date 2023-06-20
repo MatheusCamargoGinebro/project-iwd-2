@@ -96,21 +96,21 @@
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="userName" class="label-form">Nome do usuário:</label>
-            <input type="text" name="userName" id="login-username" class="input-form" placeholder="insira seu nome de usuário..." required/>
+            <input type="text" name="userName" id="login-username" class="input-form" placeholder="insira seu nome de usuário..."/>
             <p class="error-message" id="login-username-error">Nome de usuário inválido.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="password" class="label-form">Senha do usuário:</label>
-            <input type="password" name="password" id="login-password" class="input-form" placeholder="insira sua senha..." required/>
+            <input type="password" name="password" id="login-password" class="input-form" placeholder="insira sua senha..." />
             <p class="error-message" id="login-password-error">Senha inválida.</p>
             <a href="../html/register.html">Esqueceu a senha?</a>
           </div>
           
           <!--< Item submit (finalizar formulário) >-->
           <div class="submit-div">
-            <input type="submit" value="Login" id="login-btn" class="primary-btn"/>
+            <input disabled type="submit" value="Login" id="login-btn" class="primary-btn disable"/>
             <p>Não possui conta? <a href="./register.html">Registre-se!</a></p>
           </div>
         </form>
@@ -124,7 +124,7 @@
     </footer>
 
     <!--< Carregando Scripts >-->
-    <script src="../scripts/js/defaultScripts.js"></script> <!--< Script básico >-->
-    <script src="../scripts/js/loginScripts.js"></script> <!--< Script específico da página >-->
+    <script src="../scripts/defaultScripts.js"></script> <!--< Script básico >-->
+    <script src="../scripts/loginScripts.js"></script> <!--< Script específico da página >-->
   </body>
 </html>
