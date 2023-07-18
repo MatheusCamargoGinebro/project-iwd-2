@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS userSite(
 CREATE TABLE IF NOT EXISTS card(
 	cardTitle varchar(18) not null,
 	cardDescription varchar(222) not null,
-	cardImageURL longtext null,
+	cardImageURL longtext not null,
 	data_armazenamento timestamp DEFAULT CURRENT_TIMESTAMP
 );
 INSERT INTO card(cardTitle, cardDescription, cardImageURL) VALUES ('Título de Teste','Descrição extragrande de teste.','https://picsum.photos/1680/720'); -- URL de imagem apenas para teste.

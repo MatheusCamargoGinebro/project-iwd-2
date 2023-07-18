@@ -25,7 +25,6 @@ function formChecker(){
     if(checkForm.title == true && checkForm.description == true && checkForm.image == true){ //Habilitado
         formButton.disabled = false;
         formButton.classList.remove('disable');
-
     }else{ // Desabilitado
         formButton.disabled = true;
         formButton.classList.add('disable');
@@ -94,44 +93,37 @@ document.getElementById('form-description').addEventListener('input', function(e
 const fileInput = document.getElementById("imageFile");
 
 fileInput.addEventListener("change", e => {
-    checkForm.image = true;
-    formChecker();
 
     const file = fileInput.files[0];
     const reader = new FileReader();
 
     reader.addEventListener("load", () => {
         formValues.image = reader.result;
+        console.log("URL da imagem: " + formValues.image);
+
+        if(formValues.image.length>1){
+            checkForm.image = true;
+        }else{
+            checkForm.image = false;
+        }
+
+        formChecker();
     });
 
     reader.readAsDataURL(file);
 });
-
 /*--------------------------------------------------------------------------------*/
 document.getElementById("form-submit-button").addEventListener("click", async function (e){
-
-    console.log(formValues);
     e.preventDefault();
 
-    fetch('localhost:5000/script.php', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formValues),
-    })
-    .then(response => {
-        // lógica de manipulação da resposta do servidor
-        return response.json();
-    }).then(data => {
-        console.log(data);
-    })
-    .catch(error => {
-        console.error('Ocorreu um erro:', error);
-    });
-
     try{
-        const response = await fetch(url, requestOptions);
+        const response = await fetch('http://localhost:5000/script.php',  {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formValues),
+        });
         const data = await response.json();
         console.log(data);
     }catch{
