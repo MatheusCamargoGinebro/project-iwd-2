@@ -89,57 +89,52 @@ document.getElementById('form-description').addEventListener('input', function(e
     charCounter.innerHTML = description.length + "/222";
 });
 
-// Função para salvar a imagem em uma variável:
-function getImage() {
-    var input = document.getElementById('imageFile');
-    var file = input.files[0];
-    var reader = new FileReader();
-  
-    reader.onloadend = function() {
-      var image = reader.result;
-      // Temos a imagem em uma variável
-    }
-  
-    if (file) {
-      reader.readAsDataURL(file);
-    }
-}
 
 // Verifica input de imagem:
-document.getElementById("imageFile").addEventListener("change", function() {
+const fileInput = document.getElementById("imageFile");
+
+fileInput.addEventListener("change", e => {
     checkForm.image = true;
-    getImage();
     formChecker();
+
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener("load", () => {
+        formValues.image = reader.result;
+    });
+
+    reader.readAsDataURL(file);
 });
 
+/*--------------------------------------------------------------------------------*/
+document.getElementById("form-submit-button").addEventListener("click", async function (e){
 
-//++----------------------------</> FIREBASE </>----------------------------++\\ não funcionaaaaaaaaaaaaaaaaaaaaaaaa
-/*
-import firebase from "firebase/app";
-import "firebase/storage";
+    console.log(formValues);
+    e.preventDefault();
 
-// TODO: Replace the following with your app's Firebase project configuration
-// See: https://firebase.google.com/docs/web/learn-more#config-object
-const firebaseConfig = {
-  // ...
-  storageBucket: 'gs://theifers-database.appspot.com/'
-};
+    fetch('localhost:5000/script.php', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formValues),
+    })
+    .then(response => {
+        // lógica de manipulação da resposta do servidor
+        return response.json();
+    }).then(data => {
+        console.log(data);
+    })
+    .catch(error => {
+        console.error('Ocorreu um erro:', error);
+    });
 
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
-
-// Initialize Cloud Storage and get a reference to the service
-const storage = firebase.storage();
-
-
-//Verifica o botão de submit:
-document.getElementById('form-submit-button').addEventListener('click', function (e){
-    if(checkForm.title == true && checkForm.description == true && checkForm.image == true){
-        // Mandando a imagem para o firebase, e pegando a URL:
-        const nomeImage = "imagem1";
-        const upload = storage.ref().child("images").child(nomeImage).put();
-    }else{
-        event.preventDefault(); // Não vai mandar os dados se tiver algo de errado;
+    try{
+        const response = await fetch(url, requestOptions);
+        const data = await response.json();
+        console.log(data);
+    }catch{
+        console.error(e);
     }
-})*/
+})

@@ -1,27 +1,15 @@
 <?php
-// Script PHP para rodar o formulário de REGISTRO.
-ini_set("display_errors", 1);
-error_reporting(E_ALL);
+    // Script PHP para rodar o formulário de REGISTRO.
+    include('conection.php');
 
-$userName = $_GET['userName'];
-$userEmail = $_GET['userEmail'];
-$newPassword = $_GET['newPassword'];
+    $userName = $_GET['userName'];
+    $userEmail = $_GET['userEmail'];
+    $newPassword = $_GET['newPassword'];
 
-$hostname = 'localhost';
-$user = 'root';
-$password = ''; // Senha local :)
-$database = 'theIfers';
+    $query ="insert into userSite(userName, userEmail, passworld) values ('$userName', '$userEmail', '$newPassword')";
+    $res = mysqli_query($conn, $query);
 
-$conn = mysqli_connect($hostname, $user, $password, $database);
+    header("location: http://127.0.0.1:5500/index.html");
 
-if (!$conn) {
-    die("Conexão falhou: " . mysqli_connect_error());
-}
-
-$query ="insert into userSite(userName, userEmail, passworld) values ('$userName', '$userEmail', '$newPassword')";
-$res = mysqli_query($conn, $query);
-
-header("location: http://127.0.0.1:5500/index.html");
-
-die();
+    die();
 ?>
