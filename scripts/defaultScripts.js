@@ -21,4 +21,3 @@ const checkbox = document.getElementById('nav-bar-activator').addEventListener('
     div.style.left = -76 + "vw";
   }
 });
-  

@@ -22,7 +22,7 @@
         $description = $formValues['description'];
         $image = $formValues['image'];
         
-        if($title != '' && $description != '' && $image != '' && $image != undefined && $image != null){
+        if($title != '' && $description != '' && $image != '' && $image && $image != null){
             $query ="insert into card (cardTitle, cardDescription, cardImageURL) values ('$title', '$description', '$image')";
             $res = mysqli_query($conn, $query);
             
@@ -30,13 +30,16 @@
             echo json_encode(array(
                 'sucess' => true,
                 'error' => null));
+                
+            header("location: http://127.0.0.1:5500/index.html)");
             exit();
         } else {
             http_response_code(400);
             echo json_encode(array(
                 'sucess' => false,
                 'error' => 'Preencha todos os campos'));
-            exit();
+                exit();
         }
     }
+
 ?>

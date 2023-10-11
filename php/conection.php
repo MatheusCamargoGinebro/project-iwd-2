@@ -4,7 +4,7 @@
 
     $hostname = 'localhost';
     $user = 'root';
-    $password = '0001108917495.sp5'; // Senha local :)
+    $password = 'ifsp'; // Senha local :)
     $database = 'theIfers';
 
     $conn = mysqli_connect($hostname, $user, $password, $database);

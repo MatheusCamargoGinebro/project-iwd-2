@@ -16,6 +16,10 @@ const checkInfo = {
     passowrdConfirmation: false,
 };
 
+
+
+
+
 const registerValues = {
     username: '',
     email: '',

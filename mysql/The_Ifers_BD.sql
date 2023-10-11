@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS userSite(
 	PRIMARY KEY (id)
 );
 
+
 CREATE TABLE IF NOT EXISTS card(
 	cardTitle varchar(18) not null,
 	cardDescription varchar(222) not null,
