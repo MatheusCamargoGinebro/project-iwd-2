@@ -4,3 +4,5 @@
 
 Would you like to see the demo of the project?
 [Click here to see it :)](https://projeto-iwd-2.vercel.app/)
+
+[click here to see the parallel repository (Gitlab)](https://gitlab.com/MatheusCamargoGinebro/project-iwd-2)
