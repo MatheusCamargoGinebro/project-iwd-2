@@ -21,3 +21,13 @@ const checkbox = document.getElementById('nav-bar-activator').addEventListener('
     div.style.left = -76 + "vw";
   }
 });
+
+async function sessionChecker() {
+  const url = "http://localhost:5000/php/session/checkSession.php";
+
+  let response = await fetch(url);
+
+  let data = await response.json();
+
+  return data;
+}

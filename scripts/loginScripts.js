@@ -9,6 +9,14 @@ Este script tem as funções que a página Login precisa.
 Ex: verificar formulário.
 */
 
+document.addEventListener("DOMContentLoaded", function() {
+    sessionChecker().then((data) => {
+        if(data.session){
+            window.location.href = 'http://localhost:5000/';
+        }
+    });
+});
+
 // Definindo as constantes para verificar o formulário:
 console.log('loginScripts Loaded');
 const checkLogin = {
@@ -26,10 +34,12 @@ function loginChecker(){
     if(checkLogin.password == true && checkLogin.username == true){ //Habilitado
         loginButton.disabled = false;
         loginButton.classList.remove('disable');
+        return true;
 
     }else{ // Desabilitado
         loginButton.disabled = true;
         loginButton.classList.add('disable');
+        return false;
     }
 }
 
@@ -64,7 +74,7 @@ document.getElementById('login-password').addEventListener('input', function(e) 
     const password = e.target.value;
     const errorMessage = document.getElementById('login-password-error');
 
-    if(password.length < 8 || password.length > 128){
+    if(password.length < 0 || password.length > 128){
         checkLogin.password = false;
 
         errorMessage.style.marginTop = 55+"px";
@@ -84,3 +94,46 @@ document.getElementById('login-password').addEventListener('input', function(e) 
     }
     loginChecker();
 })
+
+document.getElementById('login-btn').addEventListener('click', function(e){
+    e.preventDefault();
+    if(loginChecker()){
+        const name = document.getElementById('login-username').value;
+        const password = document.getElementById('login-password').value;
+
+        console.log('Login Parameters: ', name, password);
+
+        login(name, password).then((data) => {
+            if(data.session){
+                window.location.href = 'http://localhost:5000/';	
+            }else{
+                console.log('Erro: ', data);
+            }
+        });
+    }
+
+});
+
+async function login(name, password) {
+    const url = "http://localhost:5000/php/session/login.php";
+    const init = {
+      method: "POST",
+      body: JSON.stringify({
+        name: name,
+        password: password,
+      }),
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+  
+    try {
+      const response = await fetch(url, init);
+      const data = await response.json();
+  
+      return data;
+    } catch (error) {
+      console.log("Erro: ", error);
+    }
+  }
+  
