@@ -95,3 +95,19 @@ html{
     user-select: none;
 }
 
+.disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.Error {
+    z-index: 1;
+    color: var(--errorColor);
+    font-weight: normal;
+    font-size: small;
+    position: relative;
+    top: -15px;
+
+    transition: all 0.2s;
+    animation: fadein 0.5s;
+}

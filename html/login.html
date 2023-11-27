@@ -95,22 +95,23 @@
 
           <!--< Item do formulário >-->
           <div class="form-item">
-            <label for="userName" class="label-form">Nome do usuário:</label>
-            <input type="text" name="userName" id="login-username" class="input-form" placeholder="insira seu nome de usuário..."/>
+            <label for="login-username" class="label-form">Nome do usuário:</label>
+            <input type="text" name="login-username" id="login-username" class="input-form" placeholder="insira seu nome de usuário..."/>
             <p class="error-message" id="login-username-error">Nome de usuário inválido.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
-            <label for="password" class="label-form">Senha do usuário:</label>
-            <input type="password" name="password" id="login-password" class="input-form" placeholder="insira sua senha..." />
+            <label for="login-password" class="label-form">Senha do usuário:</label>
+            <input type="password" name="login-password" id="login-password" class="input-form" placeholder="insira sua senha..." />
             <p class="error-message" id="login-password-error">Senha inválida.</p>
             <a href="../html/register.html">Esqueceu a senha?</a>
           </div>
           
           <!--< Item submit (finalizar formulário) >-->
           <div class="submit-div">
-            <input disabled type="submit" value="Login" id="login-btn" class="primary-btn disable"/>
+            <button type="submit" value="Login" id="login-submit" class="primary-btn">Logar</button>
+            <p class="Error" id="login-submit-error"></p>
             <p>Não possui conta? <a href="./register.html">Registre-se!</a></p>
           </div>
         </form>

@@ -1,241 +1,311 @@
-/*
-O===========================O
-|---------------------------|
-| Script da Página Register |
-|---------------------------|
-O===========================O
+document.addEventListener("DOMContentLoaded", function () {
+  sessionChecker().then((data) => {
+    if (data.session) {
+      window.location.href = "http://localhost:5000/";
+    }
+  });
+});
 
-Este script tem as funções que a página Register precisa.
-Ex: verificar formulário
-*/
-
-const checkInfo = {
-  username: false,
+/* Constantes de verificação */
+const check = {
+  name: false,
   email: false,
   password: false,
-  passowrdConfirmation: false,
+  passwordConfirmation: false,
 };
 
-const registerValues = {
-  username: "",
-  email: "",
-  password: "",
-  passowrdConfirmation: "",
-};
-
-function registerChecker() {
-  const registerButton = document.getElementById("register-btn");
+// Função que desativa o botão caso haja algo de errado:
+const checker = () => {
   if (
-    checkInfo.username == true &&
-    checkInfo.email == true &&
-    checkInfo.password == true &&
-    checkInfo.passowrdConfirmation == true
+    check.name &&
+    check.email &&
+    check.password &&
+    check.passwordConfirmation
   ) {
-    //Habilitado
-    registerButton.disabled = false;
-    registerButton.classList.remove("disable");
+    document.getElementById("register-submit").classList.remove("disabled");
+
+    return true;
   } else {
-    // Desabilitado
-    registerButton.disabled = true;
-    registerButton.classList.add("disable");
+    document.getElementById("register-submit").classList.add("disabled");
+
+    return false;
   }
-}
+};
 
-// "Micro" função que vericica se uma string "se parece" com um email.
-function validateEmail(email) {
-  return /^\S+@\S+\.\S+$/.test(email);
-}
-
-// Função para verificar 2 senhas.
-function passwordValidator(password) {
-  if (!password) {
-    return -1;
-  }
-
-  if (password.length < 8 || password.length > 128) {
-    return 0;
-  }
-
-  return 1;
-}
-
-console.log("registerScripts Loaded");
-
-// Testando o input de username:
-document
-  .getElementById("register-username")
+// Função verifica o input de nome:
+const name = document
+  .getElementById("register-name")
   .addEventListener("input", function (e) {
-    const username = e.target.value;
-    const errorMessage = document.getElementById("register-username-error");
+    var nameRegex = /^[a-zA-Z\s]{3,255}$/;
+    if (nameRegex.test(e.target.value) == false) {
+      check.name = false;
 
-    if (username.length < 1 || username.length > 128) {
-      checkInfo.username = false;
-
-      errorMessage.style.marginTop = 55 + "px";
-      e.target.classList.remove("valid");
-      e.target.classList.add("invalid");
-
-      console.log("Error: Invalid Username.");
+      if (e.target.value.length < 3) {
+        changeInputStyle(
+          "register-name",
+          "register-name-error",
+          "O nome deve ter no mínimo 3 caracteres.",
+          false
+        );
+      } else if (e.target.value.length > 255) {
+        changeInputStyle(
+          "register-name",
+          "register-name-error",
+          "O nome deve ter no máximo 255 caracteres.",
+          false
+        );
+      } else {
+        changeInputStyle(
+          "register-name",
+          "register-name-error",
+          "O nome deve conter apenas letras",
+          false
+        );
+      }
     } else {
-      registerValues.username = username;
-      checkInfo.username = true;
-
-      errorMessage.style.marginTop = 35 + "px";
-      e.target.classList.remove("invalid");
-      e.target.classList.add("valid");
-
-      console.log("Check: Valid Username.");
+      check.name = true;
+      changeInputStyle("register-name", "register-name-error", "", true);
     }
-    registerChecker();
+
+    checker();
   });
 
-// Testando o input de Email:
-document
+// Função verifica o input de email:
+const email = document
   .getElementById("register-email")
   .addEventListener("input", function (e) {
-    const email = e.target.value;
-    const errorMessage = document.getElementById("register-email-error");
+    var emailRegex = /^[a-zA-Z0-9._-]+@aluno\.ifsp\.edu\.br$/;
 
-    if (validateEmail(email)) {
-      registerValues.email = email;
-      checkInfo.email = true;
-
-      errorMessage.style.marginTop = 35 + "px";
-      e.target.classList.remove("invalid");
-      e.target.classList.add("valid");
-
-      console.log("Check: Valid Email");
+    if (emailRegex.test(e.target.value) == false) {
+      check.email = false;
+      changeInputStyle(
+        "register-email",
+        "register-email-error",
+        "O email deve seguir o padrão email@aluno.ifsp.edu.br",
+        false
+      );
     } else {
-      checkInfo.email = false;
-
-      errorMessage.style.marginTop = 55 + "px";
-      e.target.classList.remove("valid");
-      e.target.classList.add("invalid");
-
-      console.log("error: Invalid Email");
+      check.email = true;
+      changeInputStyle("register-email", "register-email-error", "", true);
     }
-    registerChecker();
+
+    checker();
   });
 
-// Testando o input de senha:
-document
+// Função verifica o input de senha:
+const password = document
   .getElementById("register-password")
   .addEventListener("input", function (e) {
-    const password1 = e.target.value;
-    const errorMessage1 = document.getElementById("register-password-error");
+    var upperCaseRegex = /(?=.*[A-Z])/;
+    var lowerCaseRegex = /(?=.*[a-z])/;
+    var numberRegex = /(?=.*\d)/;
+    var specialCharRegex = /(?=.*[@#$%^&+=!])./;
 
-    const verif = passwordValidator(password1);
-
-    if (verif == -1) {
-      checkInfo.password = false;
-
-      errorMessage1.style.marginTop = 55 + "px";
-      errorMessage1.innerHTML = "Tamanho inválido.";
-      e.target.classList.remove("valid");
-      e.target.classList.add("invalid");
-
-      console.log("Error: Invalid Passoword -> Nula");
-    } else if (verif == 0) {
-      checkInfo.password = false;
-
-      errorMessage1.style.marginTop = 55 + "px";
-      errorMessage1.innerHTML = "Tamanho inválido.";
-      e.target.classList.remove("valid");
-      e.target.classList.add("invalid");
-
-      console.log("Error: Valid Passoword -> Tamanho inválido");
+    if (e.target.value.length < 8) {
+      check.password = false;
+      changeInputStyle(
+        "register-password",
+        "register-password-error",
+        "A senha deve conter no mínimo 8 caracteres.",
+        false
+      );
+    } else if (e.target.value.length > 255) {
+      check.password = false;
+      changeInputStyle(
+        "register-password",
+        "register-password-error",
+        "A senha deve conter no máximo 255 caracteres.",
+        false
+      );
+    } else if (lowerCaseRegex.test(e.target.value) == false) {
+      check.password = false;
+      changeInputStyle(
+        "register-password",
+        "register-password-error",
+        "A senha deve conter pelo menos uma letra minúscula.",
+        false
+      );
+    } else if (upperCaseRegex.test(e.target.value) == false) {
+      check.password = false;
+      changeInputStyle(
+        "register-password",
+        "register-password-error",
+        "A senha deve conter pelo menos uma letra maiúscula.",
+        false
+      );
+    } else if (numberRegex.test(e.target.value) == false) {
+      check.password = false;
+      changeInputStyle(
+        "register-password",
+        "register-password-error",
+        "A senha deve conter pelo menos um número.",
+        false
+      );
+    } else if (specialCharRegex.test(e.target.value) == false) {
+      check.password = false;
+      changeInputStyle(
+        "register-password",
+        "register-password-error",
+        "A senha deve conter pelo menos um caracter especial.",
+        false
+      );
     } else {
-      registerValues.password = password1;
-      checkInfo.password = true;
-
-      errorMessage1.style.marginTop = 35 + "px";
-      e.target.classList.remove("invalid");
-      e.target.classList.add("valid");
-
-      const password2 = document.getElementById(
-        "register-password-confirmation"
+      check.password = true;
+      changeInputStyle(
+        "register-password",
+        "register-password-error",
+        "",
+        true
       );
-      const errorMessage2 = document.getElementById(
-        "register-password-confirmation-error"
-      );
-
-      if (password2.value == password1) {
-        registerValues.passowrdConfirmation = password2;
-        checkInfo.passowrdConfirmation = true;
-
-        errorMessage2.style.marginTop = 35 + "px";
-        password2.classList.remove("invalid");
-        password2.classList.add("valid");
-
-        console.log("Check: Senhas compatíveis");
-      } else {
-        checkInfo.passowrdConfirmation = false;
-
-        errorMessage2.style.marginTop = 55 + "px";
-        password2.classList.remove("valid");
-        password2.classList.add("invalid");
-
-        console.log("Error: Senhas não compatíveis");
-      }
-
-      console.log("Check: Valid Passoword -> Tudo certo");
     }
-    registerChecker();
+
+    if (
+      e.target.value !=
+      document.getElementById("register-password-confirmation").value
+    ) {
+      check.passwordConfirmation = false;
+      changeInputStyle(
+        "register-password-confirmation",
+        "register-password-confirmation-error",
+        "As senhas não coincidem.",
+        false
+      );
+    } else {
+      check.passwordConfirmation = true;
+      changeInputStyle(
+        "register-password-confirmation",
+        "register-password-confirmation-error",
+        "",
+        true
+      );
+    }
+
+    checker();
   });
 
-// Testando o input de confirmação de senha:
-document
+// Função verifica o input de confirmação de senha:
+const passwordConfirmation = document
   .getElementById("register-password-confirmation")
   .addEventListener("input", function (e) {
-    const password1 = e.target.value;
-    const errorMessage = document.getElementById(
-      "register-password-confirmation-error"
-    );
-
-    const verif = passwordValidator(password1);
-
-    if (verif == -1) {
-      checkInfo.passowrdConfirmation = false;
-
-      errorMessage.style.marginTop = 55 + "px";
-      errorMessage.innerHTML = "Tamanho inválido.";
-      e.target.classList.remove("valid");
-      e.target.classList.add("invalid");
-
-      console.log("Error: Valid Passoword -> Senha Nula");
-    } else if (verif == 0) {
-      checkInfo.passowrdConfirmation = false;
-
-      errorMessage.style.marginTop = 55 + "px";
-      errorMessage.innerHTML = "Tamanho inválido.";
-      e.target.classList.remove("valid");
-      e.target.classList.add("invalid");
-
-      console.log("Error: Valid Password -> Tamanho inválido");
+    if (e.target.value != document.getElementById("register-password").value) {
+      check.passwordConfirmation = false;
+      changeInputStyle(
+        "register-password-confirmation",
+        "register-password-confirmation-error",
+        "As senhas não coincidem.",
+        false
+      );
     } else {
-      const password2 = document.getElementById("register-password");
+      check.passwordConfirmation = true;
+      changeInputStyle(
+        "register-password-confirmation",
+        "register-password-confirmation-error",
+        "",
+        true
+      );
+    }
 
-      if (password1 == password2.value) {
-        registerValues.passowrdConfirmation = password1;
-        checkInfo.passowrdConfirmation = true;
+    checker();
+  });
 
-        errorMessage.style.marginTop = 35 + "px";
-        e.target.classList.remove("invalid");
-        e.target.classList.add("valid");
+const submitRegisterForm = document
+  .getElementById("register-submit")
+  .addEventListener("click", async function (e) {
+    if (checker()) {
+      const name = document.getElementById("register-name").value;
+      const email = document.getElementById("register-email").value;
+      const password = document.getElementById("register-password").value;
 
-        console.log("Check: Valid Password -> Tudo certo");
-      } else {
-        checkInfo.passowrdConfirmation = false;
+      const senha_criptografada = await criptografarSenha(password);
 
-        errorMessage.style.marginTop = 55 + "px";
-        errorMessage.innerHTML = "As senhas precisam ser iguais.";
-        e.target.classList.remove("valid");
-        e.target.classList.add("invalid");
+      register(name, email, senha_criptografada).then((data) => {
+        if (data.session === true) {
+          window.location.href = "http://localhost:5000/pages/session/voting.html";
+        } else {
+          if (data.email === false) {
+            changeInputStyle(
+              "register-email",
+              "register-email-error",
+              "O email já está cadastrado no sistema.",
+              false
+            );
+          }
+          if (data.name === false) {
+            changeInputStyle(
+              "register-name",
+              "register-name-error",
+              "O nome de usuário já está cadastrado no sistema.",
+              false
+            );
+          }
 
-        console.log("Error: Invalid Password -> Senhas diferentes");
+          changeInputStyle(
+            "register-submit",
+            "register-submit-error",
+            data.message,
+            false
+          );
+        }
+      });
+    } else {
+      if (check.name === false) {
+        changeInputStyle(
+          "register-name",
+          "register-name-error",
+          "O nome de usuário é inválido.",
+          false
+        );
       }
 
-      console.log("Check: Valid Passoword -> Tudo certo");
+      if (check.email === false) {
+        changeInputStyle(
+          "register-email",
+          "register-email-error",
+          "O email é inválido.",
+          false
+        );
+      }
+
+      if (check.password === false) {
+        changeInputStyle(
+          "register-password",
+          "register-password-error",
+          "A senha é inválida.",
+          false
+        );
+      }
+
+      if (check.passwordConfirmation === false) {
+        changeInputStyle(
+          "register-password-confirmation",
+          "register-password-confirmation-error",
+          "As senhas não coincidem.",
+          false
+        );
+      }
     }
-    registerChecker();
   });
+
+async function register(name, email, password) {
+  const url = "http://localhost:5000/php/database/register.php";
+
+  const init = {
+    method: "POST",
+    body: JSON.stringify({
+      name: name,
+      email: email,
+      password: password,
+    }),
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+  try {
+    const response = await fetch(url, init);
+    const data = await response.json();
+
+    return data;
+  } catch (error) {
+    console.log("Erro: ", error);
+  }
+}

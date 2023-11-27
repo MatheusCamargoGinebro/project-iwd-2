@@ -92,26 +92,26 @@
         </div>
 
         <!--< Formulário >-->
-        <form action="http://localhost:5000/registerForm.php" id="register">
+        <form id="register">
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="userName" class="label-form">Novo nome de usuário:</label>
-            <input type="text" name="userName" id="register-username" class="input-form" placeholder="insira seu nome de usuário..." required/>
+            <input type="text" name="userName" id="register-username" class="input-form" placeholder="insira seu nome de usuário..."/>
             <p class="error-message" id="register-username-error">Nome de usuário inválido.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="userEmail" class="label-form">Novo email</label>
-            <input type="email" name="userEmail" id="register-email" class="input-form" placeholder="insira seu email..." required/>
+            <input type="email" name="userEmail" id="register-email" class="input-form" placeholder="insira seu email..."/>
             <p class="error-message" id="register-email-error">Email inválido.</p>
           </div>
 
           <!--< Item do formulário >-->
           <div class="form-item">
             <label for="newPassword" class="label-form">Nova senha:</label>
-            <input type="password" name="newPassword" id="register-password" class="input-form" placeholder="insira sua senha..." required/>
+            <input type="password" name="newPassword" id="register-password" class="input-form" placeholder="insira sua senha..."/>
             <p class="error-message" id="register-password-error">Senha inválida.</p>
           </div>
 
@@ -124,7 +124,7 @@
 
           <!--< Item submit (finalizar formulário) >-->
           <div class="submit-div">
-            <input disabled type="submit" value="Registrar-se" id="register-btn" class="primary-btn disable" />
+            <button type="submit" id="register-btn" class="primary-btn disable">Registrar-se</button>
             <p>Já possui conta? <a href="./login.html">Faça Login!</a></p>
           </div>
 

@@ -106,9 +106,11 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
 
     .valid:focus{
         border-color: var(--rightColor);
+        z-index: 50;
     }
     .invalid{
         border-color: var(--errorColor);
+        z-index: 50;
     }
 
 /*+--------------------</> Index </>--------------------+*/
