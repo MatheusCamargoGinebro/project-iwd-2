@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   sessionChecker().then((data) => {
     if (data.session) {
-      window.location.href = "http://localhost:5000/";
+      //window.location.href = "http://localhost:5000/";
     }
   });
 });
@@ -211,6 +211,7 @@ const passwordConfirmation = document
 const submitRegisterForm = document
   .getElementById("register-submit")
   .addEventListener("click", async function (e) {
+    e.preventDefault();
     if (checker()) {
       const name = document.getElementById("register-name").value;
       const email = document.getElementById("register-email").value;
@@ -219,8 +220,7 @@ const submitRegisterForm = document
       const senha_criptografada = await criptografarSenha(password);
 
       register(name, email, senha_criptografada).then((data) => {
-        e.preventDefault();
-        if (data.session === true) {
+        if (data.session) {
           //window.location.href = "http://localhost:5000/;
           console.log("Cadastrado com sucesso!");
         } else {

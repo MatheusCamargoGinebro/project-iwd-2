@@ -73,7 +73,7 @@ const submitLoginForm = document
       const name = document.getElementById("login-username").value;
       const password = document.getElementById("login-password").value;
 
-      const senha_criptografada = password/*await criptografarSenha(password)*/;
+      const senha_criptografada = await criptografarSenha(password);
 
       login(name, senha_criptografada).then((data) => {
         if (data.session) {
