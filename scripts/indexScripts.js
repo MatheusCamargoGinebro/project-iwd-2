@@ -1,4 +1,47 @@
-console.log("indexScripts.js loeaded");
+document.addEventListener("DOMContentLoaded", function () {
+  sessionChecker().then((data) => {
+    document.getElementById("mobile-options-list").innerHTML =
+      "<li class='side-navbar-li-btn'>" +
+      "<a class='side-navbar-btn open' href='http://localhost:5000/'>Home</a>" +
+      "</li>";
+
+    document.getElementById("option-list").innerHTML =
+      "<li class='li-btn'>" +
+      "<a class='menu-btn hover-underline-animation' href='http://localhost:5000/'>Home</a>" +
+      "</li>";
+
+    if (data.session) {
+      document.getElementById("mobile-options-list").innerHTML +=
+        "<li class='side-navbar-li-btn'>" +
+        "<a class='side-navbar-btn' href='http://localhost:5000/html/forms.html'>Form</a>" +
+        "</li>";
+
+      document.getElementById("option-list").innerHTML +=
+        "<li class='li-btn'>" +
+        "<a class='menu-btn hover-underline-animation' href='http://localhost:5000/html/forms.html'>Form</a>" +
+        "</li>" +
+        "<li class='li-btn'>" +
+        "<a class='menu-btn hover-underline-animation' href='http://localhost:5000/php/session/logout.php'>Logout</a>" +
+        "</li>";
+    } else {
+      document.getElementById("mobile-options-list").innerHTML +=
+        "<li class='side-navbar-li-btn'>" +
+        "<a class='side-navbar-btn' href='http://localhost:5000/html/login.html'>Sign in</a>" +
+        "</li>" +
+        "<li class='side-navbar-li-btn'>";
+      "<a class='side-navbar-btn' href='http://localhost:5000/html/register.html'>Sign up</a>" +
+        "</li>";
+
+      document.getElementById("option-list").innerHTML +=
+        "<li class='li-btn'>" +
+        "<a class='menu-btn' href='http://localhost:5000/html/login.html' id='SingIn'>Sign in</a>" +
+        "</li>" +
+        "<li class='li-btn'>" +
+        "<a class='menu-btn' href='http://localhost:5000/html/register.html' id='SingUp'>Sign up</a>" +
+        "</li>";
+    }
+  });
+});
 
 async function loadCards() {
   try {
@@ -18,11 +61,7 @@ async function loadCards() {
 
     data = await response.json();
 
-    console.log("Data: ", data);
-
-    if (data.size == 0) {
-      console.log("0 cards :(");
-    } else {
+    if (data.size != 0) {
       var Content = "<div class='gridarea'>";
 
       for (let i = 0; i < data.size; i++) {
@@ -46,12 +85,18 @@ async function loadCards() {
           "</p>" +
           "</div>" +
           "</div>";
-
-        console.log("Card " + i + " loaded");
       }
       Content += "</div>";
 
       document.getElementById("container-data").innerHTML = Content;
+
+      for (let i = 0; i < data.size; i++) {
+        document
+          .getElementById("card" + i)
+          .addEventListener("click", function () {
+            //
+          });
+      }
     }
   } catch (error) {
     console.error("Error:", error);

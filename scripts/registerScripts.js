@@ -1,7 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
   sessionChecker().then((data) => {
+    document.getElementById("mobile-options-list").innerHTML =
+      "<li class='side-navbar-li-btn'>" +
+      "<a class='side-navbar-btn open' href='http://localhost:5000'>Home</a>" +
+      "</li>";
+
+    document.getElementById("option-list").innerHTML =
+      "<li class='li-btn'>" +
+      "<a class='menu-btn hover-underline-animation' href='http://localhost:5000'>Home</a>" +
+      "</li>";
+      
     if (data.session) {
       window.location.href = "http://localhost:5000/";
+    } else {
+      document.getElementById("mobile-options-list").innerHTML +=
+        "<li class='side-navbar-li-btn'>" +
+        "<a class='side-navbar-btn' href='http://localhost:5000/html/login.html'>Sign in</a>" +
+        "</li>" +
+        "<li class='side-navbar-li-btn'>";
+      "<a class='side-navbar-btn' href='http://localhost:5000/html/register.html'>Sign up</a>" +
+        "</li>";
+
+      document.getElementById("option-list").innerHTML +=
+        "<li class='li-btn'>" +
+        "<a class='menu-btn' href='http://localhost:5000/html/login.html' id='SingIn'>Sign in</a>" +
+        "</li>" +
+        "<li class='li-btn'>" +
+        "<a class='menu-btn' href='http://localhost:5000/html/register.html' id='SingUp'>Sign up</a>" +
+        "</li>";
     }
   });
 });

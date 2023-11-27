@@ -1,5 +1,3 @@
-console.log("defaultScripts loaded");
-
 const div = document.getElementById("side-navbar-div");
 const checkbox = document
   .getElementById("nav-bar-activator")

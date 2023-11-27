@@ -1,7 +1,33 @@
 document.addEventListener("DOMContentLoaded", function () {
   sessionChecker().then((data) => {
+    document.getElementById("mobile-options-list").innerHTML =
+      "<li class='side-navbar-li-btn'>" +
+      "<a class='side-navbar-btn open' href='http://localhost:5000'>Home</a>" +
+      "</li>";
+
+    document.getElementById("option-list").innerHTML =
+      "<li class='li-btn'>" +
+      "<a class='menu-btn hover-underline-animation' href='http://localhost:5000'>Home</a>" +
+      "</li>";
+
     if (!data.session) {
       window.location.href = "http://localhost:5000/";
+    } else {
+      document.getElementById("mobile-options-list").innerHTML +=
+        "<li class='side-navbar-li-btn'>" +
+        "<a class='side-navbar-btn' href='http://localhost:5000/html/forms.html'>Form</a>" +
+        "</li>" +
+        "<li class='side-navbar-li-btn'>" +
+        "<a class='side-navbar-btn' href='http://localhost:5000/php/session/logout.php'>Form</a>" +
+        "</li>";
+
+      document.getElementById("option-list").innerHTML +=
+      "<li class='li-btn'>" +
+      "<a class='menu-btn hover-underline-animation' href='http://localhost:5000/html/forms.html'>Form</a>" +
+      "</li>" + 
+      "<li class='li-btn'>" +
+      "<a class='menu-btn hover-underline-animation' href='http://localhost:5000/php/session/logout.php'>Logout</a>" +
+      "</li>";
     }
   });
 });
@@ -49,6 +75,7 @@ document.getElementById("form-title").addEventListener("input", function (e) {
   } else {
     checkForm.title = true;
     changeInputStyle("form-title", "form-title-error", "", true);
+    formValues.title = e.target.value;
   }
 
   checker();
@@ -71,6 +98,7 @@ document
       changeInputStyle("form-description", "form-description-error", "", true);
       document.getElementById("form-description-error").style.marginTop =
         200 + "px";
+      formValues.description = e.target.value;
     }
 
     // counter:
@@ -112,20 +140,25 @@ fileInput.addEventListener("change", (e) => {
     checker();
   }
 });
-/*--------------------------------------------------------------------------------*/
+
 document
   .getElementById("submit-form")
   .addEventListener("click", async function (e) {
     e.preventDefault();
     if (checker()) {
-      const result = await formSubmit(formValues);
-
-      if (result.status == "success") {
-        alert("Card cadastrado com sucesso!");
-        window.location.href = "http://localhost:5000/dashboard";
-      } else {
-        alert("Ocorreu um erro ao cadastrar o card.");
-      }
+      console.log(formValues);
+      formSubmit(formValues).then((data) => {
+        if (data.status) {
+          window.location.href = "http://localhost:5000/";
+        } else {
+          changeInputStyle(
+            "submit-form",
+            "form-submit-error",
+            data.message,
+            false
+          );
+        }
+      });
     } else {
       changeInputStyle(
         "submit-form",
