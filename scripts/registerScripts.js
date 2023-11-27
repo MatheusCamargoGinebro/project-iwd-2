@@ -287,7 +287,7 @@ const submitRegisterForm = document
   });
 
 async function register(name, email, password) {
-  const url = "http://localhost:5000/php/database/register.php";
+  const url = "http://localhost:5000/php/database/save/register.php";
 
   const init = {
     method: "POST",
