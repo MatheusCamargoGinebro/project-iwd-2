@@ -89,7 +89,6 @@ fileInput.addEventListener("change", (e) => {
 
     reader.addEventListener("load", () => {
       formValues.image = reader.result;
-      console.log("URL da imagem: " + formValues.image);
 
       if (formValues.image.length > 1) {
         checkForm.image = true;

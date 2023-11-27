@@ -23,11 +23,17 @@ const checker = () => {
     check.passwordConfirmation
   ) {
     document.getElementById("register-submit").classList.remove("disabled");
-
+    changeInputStyle("register-submit", "register-submit-error", " ", true);
+    document.getElementById("register-submit-error").innerHTML = " ";
     return true;
   } else {
     document.getElementById("register-submit").classList.add("disabled");
-
+    changeInputStyle(
+      "register-submit",
+      "register-submit-error",
+      "Preencha todos os campos corretamente.",
+      false
+    );
     return false;
   }
 };

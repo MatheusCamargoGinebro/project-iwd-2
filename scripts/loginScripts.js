@@ -16,11 +16,17 @@ const check = {
 const checker = () => {
   if (check.name && check.password) {
     document.getElementById("login-submit").classList.remove("disabled");
-
+    changeInputStyle("login-submit", "login-submit-error", " ", true);
+    document.getElementById("login-submit-error").innerHTML = " ";
     return true;
   } else {
     document.getElementById("login-submit").classList.add("disabled");
-
+    changeInputStyle(
+      "login-submit",
+      "login-submit-error",
+      "Preencha todos os campos corretamente.",
+      false
+    );
     return false;
   }
 };
