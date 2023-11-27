@@ -1,87 +1,126 @@
 <!DOCTYPE html> <!--< Passou pelo https://validator.w3.org sem erros em 21/04/2023 às 18:19 >-->
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 
-    <!--< Importanto folhas de estilo >-->
-    <link rel="stylesheet" href="./styles/basics.css" />      <!--< Folha de estilo responsável por definir pontos básicos >-->
-    <link rel="stylesheet" href="./styles/divs.css" />        <!--< Folha de estilo responsável por definir o tamanho e características das divs  >-->
-    <link rel="stylesheet" href="./styles/components.css" />  <!--< Folha de estilo responsável por dar características aos componentes >-->
-    <link rel="stylesheet" href="./styles/animations.css" />  <!--< Folha de estilo responsável pela animação dos componentes  >-->
-    <link rel="stylesheet" href="./styles/responsive.css" />  <!--< Folha de estilo responsável pela responsividade da página >-->
+  <!--< Importanto folhas de estilo >-->
+  <link rel="stylesheet" href="./styles/basics.css" /> <!--< Folha de estilo responsável por definir pontos básicos >-->
+  <link rel="stylesheet" href="./styles/divs.css" />
+  <!--< Folha de estilo responsável por definir o tamanho e características das divs  >-->
+  <link rel="stylesheet" href="./styles/components.css" />
+  <!--< Folha de estilo responsável por dar características aos componentes >-->
+  <link rel="stylesheet" href="./styles/animations.css" />
+  <!--< Folha de estilo responsável pela animação dos componentes  >-->
+  <link rel="stylesheet" href="./styles/responsive.css" />
+  <!--< Folha de estilo responsável pela responsividade da página >-->
 
-     <!--< Puxando o ícone do site >-->
-    <link rel="icon" type="image/x-icon" href="/imgs/favicon/theIfers_logo_normal.png" />
+  <!--< Puxando o ícone do site >-->
+  <link rel="icon" type="image/x-icon" href="/imgs/favicon/theIfers_logo_normal.png" />
 
-     <!--< Definindo o título do site >-->
-    <title>Projeto IWD-2 - Home</title>
-  </head>
+  <!--< Definindo o título do site >-->
+  <title>Projeto IWD-2 - Home</title>
+</head>
 
-  <body>
-    <!--< Header (cabeçalho do site) >-->
-    <header class="menu-div">
-    
-      <div class="side-navbar-div" id="side-navbar-div">
-        <div class="side-navbar-title-div">
-          <h1>The Ifers</h1>
-        </div>
-        <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
-          <ul id="mobile-options-list">
-          </ul>
-        </nav>
+<body id="body-id">
+  <!--< Header (cabeçalho do site) >-->
+  <header class="menu-div">
+
+    <div class="side-navbar-div" id="side-navbar-div">
+      <div class="side-navbar-title-div">
+        <h1>The Ifers</h1>
       </div>
-  
-        <div class="nav-bar-activator-div">
-          <input type="checkbox" name="navbar-activator" id="nav-bar-activator"/>
-        </div>
-  
-        <div class="logo-div"> <!--< Div da logo do site >-->
-          <a href="#">
-            <img src="./imgs/favicon/theIfers_logo_icon_transparent.png" alt="Logo"/>
-          </a>
-          <div>
-            <p>The Ifers</p>
-          </div>
-        </div>
-  
-        <div class="navbar-div">
-          <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
-            <ul id="option-list">
-            </ul>
-          </nav>
-        </div>
-      </header>
+      <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
+        <ul id="mobile-options-list">
+        </ul>
+      </nav>
+    </div>
 
-    <!--< Div do conteúdo central (todo o conteúdo do site fica aqui) >-->
-    <div class="content-div">
-      <div class="search-div">
-        <form action="search">
-          <input type="search" name="search" id="searchForm" placeholder="Pesquisar item por título..."/>
-          <img src="./imgs/icons/search_icon.png" alt="icon" />
-        </form>
-      </div>
+    <div class="nav-bar-activator-div">
+      <input type="checkbox" name="navbar-activator" id="nav-bar-activator" />
+    </div>
 
-      <!--< Div para centralizar a div gridarea >-->
-      <div class="ideas-div"  id="container-data">
-
+    <div class="logo-div"> <!--< Div da logo do site >-->
+      <a href="#">
+        <img src="./imgs/favicon/theIfers_logo_icon_transparent.png" alt="Logo" />
+      </a>
+      <div>
+        <p>The Ifers</p>
       </div>
     </div>
 
-    <div id="consulta">
+    <div class="navbar-div">
+      <nav> <!--< Parte que guarda os itens de navegação do site (links) >-->
+        <ul id="option-list">
+        </ul>
+      </nav>
+    </div>
+  </header>
 
+  <!--< Div do conteúdo central (todo o conteúdo do site fica aqui) >-->
+  <div class="content-div">
+    <div class="search-div">
+      <form action="search">
+        <input type="search" name="search" id="searchForm" placeholder="Pesquisar item por título..." />
+        <img src="./imgs/icons/search_icon.png" alt="icon" />
+      </form>
     </div>
 
+    <!--< Div para centralizar a div gridarea >-->
+    <div class="ideas-div" id="container-data">
 
-    <!--< Rodapé >-->
-    <footer class="footer-div">
-      <p class="ft-text">Site elaborado por: <a href="https://github.com/MatheusCamargoGinebro" target="_blank">Matheus Camargo Ginebro CP3016153</a> e <a href="#">Mateus Rodrigues Martins CP3016277</a>.</p>
-    </footer>
+    </div>
+  </div>
 
-    <!--< Carregando scripts >-->
-    <script src="./scripts/defaultScripts.js"></script> <!--< Script básico >-->
-    <script src="./scripts/indexScripts.js"></script>
-  </body>
+  <div id="modal-screen">
+    <div class="modal">
+      <form id="update">
+
+        <!--< Itens do formulário >-->
+        <div class="form-item">
+          <label for="form-title" class="label-form">Título da imagem:</label>
+          <input type="text" name="form-title" id="form-title" class="input-form"
+            placeholder="insira o título da imagem..." />
+          <p class="error-message" id="form-title-error">Tamanho do título inválido.</p>
+        </div>
+
+        <div class="form-item">
+          <label for="update-description" class="label-form">Descrição da imagem:</label>
+          <textarea name="update-description" id="update-description"
+            placeholder="insira a descrição da imagem..."></textarea>
+          <p id="cont"></p>
+          <p class="error-message" id="update-description-error">Tamanho da descrição inválido.</p>
+        </div>
+
+        <div class="form-item">
+          <label for="image-file" class="label-form">Imagem:</label>
+          <input type="file" name="image-file" id="image-file" accept="image/jpeg, image/png" />
+          <p class="error-message" id="image-file-error">Insira uma imagem.</p>
+        </div>
+
+        <!--< Botão de submit do formulário (finalizar formulário) >-->
+        <div class="submit-div">
+          <button type="submit" id="submit-update" class="primary-btn">Atualizar Card</button>
+          <p class="Error" id="update-submit-error"></p>
+        </div>
+      </form>
+
+    </div>
+  </div>
+
+
+  <!--< Rodapé >-->
+  <footer class="footer-div">
+    <p class="ft-text">Site elaborado por: <a href="https://github.com/MatheusCamargoGinebro" target="_blank">Matheus
+        Camargo Ginebro CP3016153</a> e <a href="#">Mateus Rodrigues Martins CP3016277</a>.</p>
+  </footer>
+
+  <!--< Carregando scripts >-->
+  <script src="./scripts/defaultScripts.js"></script> <!--< Script básico >-->
+  <script src="./scripts/indexScripts.js"></script>
+</body>
+
 </html>

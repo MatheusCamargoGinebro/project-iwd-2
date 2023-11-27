@@ -44,23 +44,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 async function loadCards() {
-  try {
-    const response = await fetch(
-      "http://localhost:5000/php/database/load/loadCards.php",
-      {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    data = await response.json();
-
+  getCards().then((data) => {
     if (data.size != 0) {
       var Content = "<div class='gridarea'>";
 
@@ -94,13 +78,229 @@ async function loadCards() {
         document
           .getElementById("card" + i)
           .addEventListener("click", function () {
-            //
+            document.getElementById("body-id").style.overflow = "hidden";
           });
       }
     }
+  });
+}
+
+async function getCards() {
+  try {
+    const response = await fetch(
+      "http://localhost:5000/php/database/load/loadCards.php",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    data = await response.json();
+
+    return data;
   } catch (error) {
     console.error("Error:", error);
   }
 }
 
 loadCards();
+
+/*-------------------------------------------------------------------------------------*/
+
+const checkupdate = {
+  title: false,
+  description: false,
+  image: false,
+};
+
+const updateValues = {
+  title: "",
+  description: "",
+  image: "",
+};
+
+const checker = () => {
+  if (checkupdate.title && checkupdate.description && checkupdate.image) {
+    document.getElementById("submit-update").classList.remove("disabled");
+    changeInputStyle("submit-update", "update-submit-error", "", true);
+    document.getElementById("update-submit-error").innerHTML = " ";
+    return true;
+  } else {
+    document.getElementById("submit-update").classList.add("disabled");
+    changeInputStyle(
+      "submit-update",
+      "update-submit-error",
+      "Preencha todos os campos corretamente.",
+      false
+    );
+    return false;
+  }
+};
+
+// Verificar input de título:
+document.getElementById("update-title").addEventListener("input", function (e) {
+  if (e.target.value.length < 1 || e.target.value.length > 18) {
+    checkupdate.title = false;
+    changeInputStyle(
+      "update-title",
+      "update-title-error",
+      "O título deve ter entre 1 e 18 caracteres.",
+      false
+    );
+  } else {
+    checkupdate.title = true;
+    changeInputStyle("update-title", "update-title-error", "", true);
+    updateValues.title = e.target.value;
+  }
+
+  checker();
+});
+
+// Verificar input de descrição:
+document
+  .getElementById("update-description")
+  .addEventListener("input", function (e) {
+    if (e.target.value.length < 1 || e.target.value.length > 222) {
+      checkupdate.description = false;
+      changeInputStyle(
+        "update-description",
+        "update-description-error",
+        "A descrição deve ter entre 1 e 222 caracteres.",
+        false
+      );
+    } else {
+      checkupdate.description = true;
+      changeInputStyle(
+        "update-description",
+        "update-description-error",
+        "",
+        true
+      );
+      document.getElementById("update-description-error").style.marginTop =
+        200 + "px";
+      updateValues.description = e.target.value;
+    }
+
+    // counter:
+    document.getElementById("cont").innerHTML = e.target.value.length + "/222";
+
+    checker();
+  });
+
+// Verifica input de imagem:
+const fileInput = document.getElementById("image-file");
+
+fileInput.addEventListener("change", (e) => {
+  if (e.target.files[0] != undefined) {
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener("load", () => {
+      updateValues.image = reader.result;
+
+      if (updateValues.image.length > 1) {
+        checkupdate.image = true;
+        changeInputStyle("image-file", "image-file-error", "", true);
+      } else {
+        checkupdate.image = false;
+        changeInputStyle(
+          "image-file",
+          "image-file-error",
+          "Selecione uma imagem.",
+          false
+        );
+      }
+
+      checker();
+    });
+
+    reader.readAsDataURL(file);
+  } else {
+    checkupdate.image = false;
+    checker();
+  }
+});
+
+document
+  .getElementById("submit-update")
+  .addEventListener("click", async function (e) {
+    e.preventDefault();
+    if (checker()) {
+      console.log(updateValues);
+      updateSubmit(updateValues).then((data) => {
+        if (data.status) {
+          window.location.href = "http://localhost:5000/";
+        } else {
+          changeInputStyle(
+            "submit-update",
+            "update-submit-error",
+            data.message,
+            false
+          );
+        }
+      });
+    } else {
+      changeInputStyle(
+        "submit-update",
+        "update-submit-error",
+        "Preencha todos os campos corretamente.",
+        false
+      );
+
+      if (!checkupdate.title) {
+        changeInputStyle(
+          "update-title",
+          "update-title-error",
+          "O título deve ter entre 1 e 18 caracteres.",
+          false
+        );
+      }
+
+      if (!checkupdate.description) {
+        changeInputStyle(
+          "update-description",
+          "update-description-error",
+          "A descrição deve ter entre 1 e 222 caracteres.",
+          false
+        );
+        document.getElementById("update-description-error").style.marginTop =
+          200 + "px";
+      }
+
+      if (!checkupdate.image) {
+        changeInputStyle(
+          "image-file",
+          "image-file-error",
+          "Selecione uma imagem.",
+          false
+        );
+      }
+    }
+  });
+
+async function updateSubmit(data) {
+  const url = "http://localhost:5000/php/database/save/saveCard.php";
+
+  const init = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+
+  try {
+    const response = await fetch(url, init);
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.log("Erro: ", error);
+  }
+}
