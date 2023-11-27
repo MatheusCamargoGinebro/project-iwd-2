@@ -285,7 +285,7 @@ document
   });
 
 async function updateSubmit(data) {
-  const url = "http://localhost:5000/php/database/save/saveCard.php";
+  const url = "http://localhost:5000/php/database/save/updateCard.php";
 
   const init = {
     method: "POST",

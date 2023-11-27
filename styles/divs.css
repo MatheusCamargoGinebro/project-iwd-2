@@ -189,7 +189,7 @@ Exemplo: Tamanho, cor, formato e posição das divs.
 
 #modal-screen {
   position: fixed;
-  /*display: none; */
+  display: none;
   align-items: center;
   justify-content: center;
 
