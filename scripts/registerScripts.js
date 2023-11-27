@@ -219,8 +219,10 @@ const submitRegisterForm = document
       const senha_criptografada = await criptografarSenha(password);
 
       register(name, email, senha_criptografada).then((data) => {
+        e.preventDefault();
         if (data.session === true) {
-          window.location.href = "http://localhost:5000/pages/session/voting.html";
+          //window.location.href = "http://localhost:5000/;
+          console.log("Cadastrado com sucesso!");
         } else {
           if (data.email === false) {
             changeInputStyle(
