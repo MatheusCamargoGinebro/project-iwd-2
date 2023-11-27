@@ -91,31 +91,32 @@
         </div>
 
         <!--< Formulário >-->
-        <form id="cadcard" method="post">
+        <form id="cadcard">
 
           <!--< Itens do formulário >-->
           <div class="form-item">
             <label for="form-title" class="label-form">Título da imagem:</label>
-            <input type="text" name="imageTitle" id="form-title" class="input-form" placeholder="insira o título da imagem..." required/>
+            <input type="text" name="form-title" id="form-title" class="input-form" placeholder="insira o título da imagem..." />
             <p class="error-message" id="form-title-error">Tamanho do título inválido.</p>
           </div>
 
           <div class="form-item">
             <label for="form-description" class="label-form">Descrição da imagem:</label>
-            <textarea name="imageDescription" id="form-description" placeholder="insira a descrição da imagem..." required></textarea>
+            <textarea name="form-description" id="form-description" placeholder="insira a descrição da imagem..." ></textarea>
             <p id="cont"></p>
             <p class="error-message" id="form-description-error">Tamanho da descrição inválido.</p>
           </div>
 
           <div class="form-item">
-            <label for="imageFile" class="label-form">Imagem:</label>
-            <input type="file" name="imageFile" id="imageFile" accept="image/jpeg, image/png" required/>
-            <p class="error-message" id="form-image-error">Insira uma imagem.</p>
+            <label for="image-file" class="label-form">Imagem:</label>
+            <input type="file" name="image-file" id="image-file" accept="image/jpeg, image/png" />
+            <p class="error-message" id="image-file-error">Insira uma imagem.</p>
           </div>
           
           <!--< Botão de submit do formulário (finalizar formulário) >-->
           <div class="submit-div">
-            <input disabled type="button" value="Postar imagem" id="form-submit-button" class="primary-btn disable" />
+            <button type="submit" id="submit-form" class="primary-btn">Postar imagem</button>
+            <p class="Error" id="form-submit-error"></p>
           </div>
         </form>
       </div>

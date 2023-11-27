@@ -1,13 +1,11 @@
-/*
-O========================O
-|------------------------|
-| Script da Página Forms |
-|------------------------|
-O========================O
+document.addEventListener("DOMContentLoaded", function () {
+  sessionChecker().then((data) => {
+    if (!data.session) {
+      window.location.href = "http://localhost:5000/";
+    }
+  });
+});
 
-Este script tem as funções que a página Forms precisa.
-Ex: verificar formulário
-*/
 const checkForm = {
   title: false,
   description: false,
@@ -20,84 +18,69 @@ const formValues = {
   image: "",
 };
 
-function formChecker() {
-  const formButton = document.getElementById("form-submit-button");
-  if (
-    checkForm.title == true &&
-    checkForm.description == true &&
-    checkForm.image == true
-  ) {
-    //Habilitado
-    formButton.disabled = false;
-    formButton.classList.remove("disable");
+const checker = () => {
+  if (checkForm.title && checkForm.description && checkForm.image) {
+    document.getElementById("submit-form").classList.remove("disabled");
+    changeInputStyle("submit-form", "form-submit-error", "", true);
+    document.getElementById("form-submit-error").innerHTML = " ";
+    return true;
   } else {
-    // Desabilitado
-    formButton.disabled = true;
-    formButton.classList.add("disable");
+    document.getElementById("submit-form").classList.add("disabled");
+    changeInputStyle(
+      "submit-form",
+      "form-submit-error",
+      "Preencha todos os campos corretamente.",
+      false
+    );
+    return false;
   }
-}
-
-console.log("FormScripts Loaded");
+};
 
 // Verificar input de título:
 document.getElementById("form-title").addEventListener("input", function (e) {
-  const title = e.target.value;
-  const errorMessage = document.getElementById("form-title-error");
-
-  if (title.length < 1 || title.length > 18) {
+  if (e.target.value.length < 1 || e.target.value.length > 18) {
     checkForm.title = false;
-
-    errorMessage.style.marginTop = 55 + "px";
-    e.target.classList.remove("valid");
-    e.target.classList.add("invalid");
-
-    console.log("Error: Invalid title");
+    changeInputStyle(
+      "form-title",
+      "form-title-error",
+      "O título deve ter entre 1 e 18 caracteres.",
+      false
+    );
   } else {
-    formValues.title = title;
     checkForm.title = true;
-
-    errorMessage.style.marginTop = 35 + "px";
-    e.target.classList.remove("invalid");
-    e.target.classList.add("valid");
-
-    console.log("Check: Valid Title");
+    changeInputStyle("form-title", "form-title-error", "", true);
   }
-  formChecker();
+
+  checker();
 });
 
 // Verificar input de descrição:
 document
   .getElementById("form-description")
   .addEventListener("input", function (e) {
-    const description = e.target.value;
-    const errorMessage = document.getElementById("form-description-error");
-    const charCounter = document.getElementById("cont");
-
-    if (description.length < 1 || description.length > 222) {
+    if (e.target.value.length < 1 || e.target.value.length > 222) {
       checkForm.description = false;
-
-      errorMessage.style.marginTop = 230 + "px";
-      e.target.classList.remove("valid");
-      e.target.classList.add("invalid");
-
-      console.log("Error: Invalid description");
+      changeInputStyle(
+        "form-description",
+        "form-description-error",
+        "A descrição deve ter entre 1 e 222 caracteres.",
+        false
+      );
     } else {
-      formValues.description = description;
       checkForm.description = true;
-
-      errorMessage.style.marginTop = 200 + "px";
-      e.target.classList.remove("invalid");
-      e.target.classList.add("valid");
-
-      console.log("Check: Valid description");
+      changeInputStyle("form-description", "form-description-error", "", true);
+      document.getElementById("form-description-error").style.marginTop =
+        200 + "px";
     }
-    formChecker();
 
-    charCounter.innerHTML = description.length + "/222";
+    // counter:
+    document.getElementById("cont").innerHTML = e.target.value.length + "/222";
+
+    checker();
   });
 
 // Verifica input de imagem:
-const fileInput = document.getElementById("imageFile");
+const fileInput = document.getElementById("image-file");
 
 fileInput.addEventListener("change", (e) => {
   if (e.target.files[0] != undefined) {
@@ -110,40 +93,96 @@ fileInput.addEventListener("change", (e) => {
 
       if (formValues.image.length > 1) {
         checkForm.image = true;
+        changeInputStyle("image-file", "image-file-error", "", true);
       } else {
         checkForm.image = false;
+        changeInputStyle(
+          "image-file",
+          "image-file-error",
+          "Selecione uma imagem.",
+          false
+        );
       }
 
-      formChecker();
+      checker();
     });
 
     reader.readAsDataURL(file);
   } else {
     checkForm.image = false;
-    formChecker();
+    checker();
   }
 });
 /*--------------------------------------------------------------------------------*/
 document
-  .getElementById("form-submit-button")
+  .getElementById("submit-form")
   .addEventListener("click", async function (e) {
     e.preventDefault();
-    if (formChecker()) {
-      const url = "http://localhost:5000/php/database/insert/insertCard.php";
-      const data = formValues;
+    if (checker()) {
+      const result = await formSubmit(formValues);
 
-      const response = await fetch(url, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-
-      console.log(result);
+      if (result.status == "success") {
+        alert("Card cadastrado com sucesso!");
+        window.location.href = "http://localhost:5000/dashboard";
+      } else {
+        alert("Ocorreu um erro ao cadastrar o card.");
+      }
     } else {
-      console.log("Erro: Formulário inválido");
+      changeInputStyle(
+        "submit-form",
+        "form-submit-error",
+        "Preencha todos os campos corretamente.",
+        false
+      );
+
+      if (!checkForm.title) {
+        changeInputStyle(
+          "form-title",
+          "form-title-error",
+          "O título deve ter entre 1 e 18 caracteres.",
+          false
+        );
+      }
+
+      if (!checkForm.description) {
+        changeInputStyle(
+          "form-description",
+          "form-description-error",
+          "A descrição deve ter entre 1 e 222 caracteres.",
+          false
+        );
+        document.getElementById("form-description-error").style.marginTop =
+          200 + "px";
+      }
+
+      if (!checkForm.image) {
+        changeInputStyle(
+          "image-file",
+          "image-file-error",
+          "Selecione uma imagem.",
+          false
+        );
+      }
     }
   });
+
+async function formSubmit(data) {
+  const url = "http://localhost:5000/php/database/save/saveCard.php";
+
+  const init = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+
+  try {
+    const response = await fetch(url, init);
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.log("Erro: ", error);
+  }
+}

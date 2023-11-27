@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   sessionChecker().then((data) => {
     if (data.session) {
-      //window.location.href = "http://localhost:5000/";
+      window.location.href = "http://localhost:5000/";
     }
   });
 });
@@ -221,8 +221,7 @@ const submitRegisterForm = document
 
       register(name, email, senha_criptografada).then((data) => {
         if (data.session) {
-          //window.location.href = "http://localhost:5000/;
-          console.log("Cadastrado com sucesso!");
+          window.location.href = "http://localhost:5000/";
         } else {
           if (data.email === false) {
             changeInputStyle(

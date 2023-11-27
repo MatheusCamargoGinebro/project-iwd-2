@@ -100,7 +100,7 @@ Exemplo: animações para se usar em hover, focus, after/before, etc.
         border-color: var(--t-c-3);
     }
 
-    #imageFile:hover{
+    #image-file:hover{
         color: var(--t-c-1);
     }
 

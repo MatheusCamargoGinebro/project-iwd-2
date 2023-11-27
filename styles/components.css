@@ -189,7 +189,7 @@ Exemplo: botões, links, imputs em geral.
         color: var(--t-c-3);
         margin: -17px 7px auto auto;
 
-        z-index: 3;
+        z-index: 50;
         transition: all .2s;
     }
 
@@ -219,7 +219,7 @@ Exemplo: botões, links, imputs em geral.
         transition: all .2s;
     }
 
-    #imageFile{
+    #image-file{
         width: fit-content;
         padding-right: 6px;
 
