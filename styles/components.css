@@ -405,3 +405,29 @@ Exemplo: botões, links, imputs em geral.
     background-color: var(--d-c-2);
     color: var(--t-c-2);
 }
+
+@media (prefers-color-scheme:light){
+    #close-modal{
+        background-color: var(--d-c-1);
+        color: var(--t-c-1);
+    }
+    #close-modal:hover{
+        background-color: var(--d-c-2);
+        color: var(--t-c-2);
+    }
+    #delete-modal{
+        background-color: var(--d-c-1);
+        color: var(--t-c-1);
+    }
+    #delete-modal:hover{
+        background-color: var(--d-c-2);
+        color: var(--t-c-2);
+    }
+
+    #close-modal img{
+        filter: invert(1);
+    }
+    #delete-modal img{
+        filter: invert(1);
+    }
+}

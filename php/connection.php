@@ -9,7 +9,7 @@ header("Access-Control-Allow-Headers: Content-Type");
 
 $hostname = 'localhost';
 $user = 'root';
-$password = '1234'; // Senha local :)
+$password = 'ifsp'; // Senha local :)
 $database = 'myDatabase';
 
 $conn = mysqli_connect($hostname, $user, $password, $database);
