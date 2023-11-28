@@ -43,6 +43,13 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
+const atualData = {
+  title: "",
+  description: "",
+  image: "",
+  id: "",
+};
+
 async function loadCards() {
   getCards().then((data) => {
     if (data.size != 0) {
@@ -50,8 +57,8 @@ async function loadCards() {
 
       for (let i = 0; i < data.size; i++) {
         Content +=
-          "<div class='object-div' id='card" +
-          i +
+          "<div class='object-div' id='" +
+          data.cards[i].id +
           "'>" +
           "<div class='object-img-div'>" +
           "<img src='" +
@@ -74,12 +81,22 @@ async function loadCards() {
 
       document.getElementById("container-data").innerHTML = Content;
 
-      for (let i = 0; i < data.size; i++) {
-        document
-          .getElementById("card" + i)
-          .addEventListener("click", function () {
-            document.getElementById("body-id").style.overflow = "hidden";
-          });
+       for (let i = 0; i < data.size; i++) {
+        document.getElementById(data.cards[i].id).addEventListener("click", function () {
+          document.getElementById("modal-screen").style.display = "flex";
+
+          document.getElementById("update-title").value = data.cards[i].cardTitle;
+          document.getElementById("update-description").value = data.cards[i].cardDescription;
+
+          // Alterando o placeholder dos inputs:
+          document.getElementById("update-title").placeholder = data.cards[i].cardTitle;
+          document.getElementById("update-description").placeholder = data.cards[i].cardDescription;
+
+          atualData.title = data.cards[i].cardTitle;
+          atualData.description = data.cards[i].cardDescription;
+          atualData.image = data.cards[i].cardImageURL;
+          atualData.id = data.cards[i].id;
+        });
       }
     }
   });
@@ -112,6 +129,10 @@ async function getCards() {
 loadCards();
 
 /*-------------------------------------------------------------------------------------*/
+document.getElementById("close-modal").addEventListener("click", function (e) {
+  e.preventDefault();
+  document.getElementById("modal-screen").style.display = "none";
+});
 
 const checkupdate = {
   title: false,
@@ -232,8 +253,16 @@ document
   .addEventListener("click", async function (e) {
     e.preventDefault();
     if (checker()) {
-      console.log(updateValues);
-      updateSubmit(updateValues).then((data) => {
+      console.log(atualData);
+
+      const newData = {
+        title: updateValues.title,
+        description: updateValues.description,
+        image: updateValues.image,
+        id: atualData.id,
+      }
+
+      updateSubmit(newData).then((data) => {
         if (data.status) {
           window.location.href = "http://localhost:5000/";
         } else {
@@ -286,6 +315,38 @@ document
 
 async function updateSubmit(data) {
   const url = "http://localhost:5000/php/database/save/updateCard.php";
+
+  const init = {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: {
+      "content-type": "application/json",
+    },
+  };
+
+  try {
+    const response = await fetch(url, init);
+    const result = await response.json();
+
+    return result;
+  } catch (error) {
+    console.log("Erro: ", error);
+  }
+}
+
+document.getElementById("delete-modal").addEventListener("click", async function (e) {
+  e.preventDefault();
+  deleteSubmit(atualData).then((data) => {
+    if (data.status) {
+      window.location.href = "http://localhost:5000/";
+    } else {
+      document.getElementById("update").style.border = "1px solid red";
+    }
+  });
+});
+
+async function deleteSubmit(data) {
+  const url = "http://localhost:5000/php/database/delete/deleteCard.php";
 
   const init = {
     method: "POST",

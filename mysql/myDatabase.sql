@@ -15,10 +15,12 @@ CREATE TABLE
 
 CREATE TABLE
 	IF NOT EXISTS card (
+		id int auto_increment,
 		cardTitle varchar(18) not null,
 		cardDescription varchar(222) not null,
 		cardImageURL longtext not null,
-		data_armazenamento timestamp DEFAULT CURRENT_TIMESTAMP
+		data_armazenamento timestamp DEFAULT CURRENT_TIMESTAMP,
+		PRIMARY KEY (id)
 	);
 
 select

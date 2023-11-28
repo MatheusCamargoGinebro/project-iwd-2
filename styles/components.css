@@ -355,3 +355,53 @@ Exemplo: botões, links, imputs em geral.
 
 /**/
     
+
+#close-modal{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 10px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    background-color: var(--d-c-1);
+    color: var(--t-c-1);
+    cursor: pointer;
+    transition: all .2s;
+}
+
+#close-modal:hover{
+    background-color: var(--d-c-2);
+    color: var(--t-c-2);
+}
+
+#close-modal img{
+    height: 20px;
+}
+
+#delete-modal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 10px;
+    padding: 5px;
+    outline: none;
+    border: none;
+    background-color: var(--d-c-1);
+    color: var(--t-c-1);
+    cursor: pointer;
+    transition: all .2s;
+}
+
+#delete-modal img{
+    height: 20px;
+}
+
+#delete-modal:hover{
+    background-color: var(--d-c-2);
+    color: var(--t-c-2);
+}
