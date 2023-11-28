@@ -1,3 +1,10 @@
+let session;
+sessionChecker().then((data) => {
+  session = data;
+});
+
+console.log(session);
+
 document.addEventListener("DOMContentLoaded", function () {
   sessionChecker().then((data) => {
     document.getElementById("mobile-options-list").innerHTML =
@@ -81,22 +88,32 @@ async function loadCards() {
 
       document.getElementById("container-data").innerHTML = Content;
 
-       for (let i = 0; i < data.size; i++) {
-        document.getElementById(data.cards[i].id).addEventListener("click", function () {
-          document.getElementById("modal-screen").style.display = "flex";
+      for (let i = 0; i < data.size; i++) {
+        document
+          .getElementById(data.cards[i].id)
+          .addEventListener("click", function () {
+            if (session.session) {
+              document.getElementById("modal-screen").style.display = "flex";
 
-          document.getElementById("update-title").value = data.cards[i].cardTitle;
-          document.getElementById("update-description").value = data.cards[i].cardDescription;
+              document.getElementById("update-title").value =
+                data.cards[i].cardTitle;
+              document.getElementById("update-description").value =
+                data.cards[i].cardDescription;
 
-          // Alterando o placeholder dos inputs:
-          document.getElementById("update-title").placeholder = data.cards[i].cardTitle;
-          document.getElementById("update-description").placeholder = data.cards[i].cardDescription;
+              // Alterando o placeholder dos inputs:
+              document.getElementById("update-title").placeholder =
+                data.cards[i].cardTitle;
+              document.getElementById("update-description").placeholder =
+                data.cards[i].cardDescription;
 
-          atualData.title = data.cards[i].cardTitle;
-          atualData.description = data.cards[i].cardDescription;
-          atualData.image = data.cards[i].cardImageURL;
-          atualData.id = data.cards[i].id;
-        });
+              atualData.title = data.cards[i].cardTitle;
+              atualData.description = data.cards[i].cardDescription;
+              atualData.image = data.cards[i].cardImageURL;
+              atualData.id = data.cards[i].id;
+            } else {
+              window.location.href = "http://localhost:5000/html/login.html";
+            }
+          });
       }
     }
   });
@@ -260,7 +277,7 @@ document
         description: updateValues.description,
         image: updateValues.image,
         id: atualData.id,
-      }
+      };
 
       updateSubmit(newData).then((data) => {
         if (data.status) {
@@ -334,16 +351,18 @@ async function updateSubmit(data) {
   }
 }
 
-document.getElementById("delete-modal").addEventListener("click", async function (e) {
-  e.preventDefault();
-  deleteSubmit(atualData).then((data) => {
-    if (data.status) {
-      window.location.href = "http://localhost:5000/";
-    } else {
-      document.getElementById("update").style.border = "1px solid red";
-    }
+document
+  .getElementById("delete-modal")
+  .addEventListener("click", async function (e) {
+    e.preventDefault();
+    deleteSubmit(atualData).then((data) => {
+      if (data.status) {
+        window.location.href = "http://localhost:5000/";
+      } else {
+        document.getElementById("update").style.border = "1px solid red";
+      }
+    });
   });
-});
 
 async function deleteSubmit(data) {
   const url = "http://localhost:5000/php/database/delete/deleteCard.php";
