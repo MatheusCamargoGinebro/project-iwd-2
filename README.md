@@ -8,7 +8,6 @@ Would you like to see the demo of the project?
 [click here](https://gitlab.com/MatheusCamargoGinebro/project-iwd-2) to see the parallel repository (from Gitlab)
 [click here](https://github.com/MatheusCamargoGinebro/project-iwd-2) to see the parallel repository (from Gitlab)
 
-
 ## A Simple Crud system with html, css, js and php.
 
 ### Connecction with database:
@@ -18,18 +17,24 @@ Would you like to see the demo of the project?
 
 ```php
 <?php
-    ini_set("display_errors", 1);
-    error_reporting(E_ALL);
+ini_set("display_errors", 1);
+error_reporting(E_ALL);
 
-    $hostname = 'localhost';
-    $user = 'root';
-    $password = ''; // Senha local :)
-    $database = 'eleicao';
+header('Content-type: application/json');
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Methods: GET, POST, OPTIONS");
+header("Access-Control-Allow-Headers: Content-Type");
 
-    $conn = mysqli_connect($hostname, $user, $password, $database);
+$hostname = 'localhost';
+$user = 'root';
+$password = 'ifsp'; // Senha local :)
+$database = 'myDatabase';
 
-    if (!$conn) {
-        die("Conexão falhou: " . mysqli_connect_error());
-    }
+$conn = mysqli_connect($hostname, $user, $password, $database);
+
+if (!$conn) {
+    die("Conexão falhou: " . mysqli_connect_error());
+}
 ?>
+
 ```
